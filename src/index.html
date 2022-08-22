@@ -1,44 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
-  <link rel="icon" type="image/x-icon" href="https://i.ibb.co/x1gsNXS/pesa-45-rosa.png"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  <link rel="stylesheet" href="./modules/index.css">
+  <link rel="icon" type="image/x-icon" href="https://i.ibb.co/x1gsNXS/pesa-45-rosa.png" />
   <link href="style.css" rel="stylesheet" />
   <title>GirlFit</title>
 </head>
+
 <body>
-   <div id="container">
-      <div class="mobile-logo"><img src="img/logo/logo-rosa.png"></div>
-     <div class="container-form sign-in" id="container-sing-in">
-      <form class="formulario">
-      <h2 class="form_title">Bienvenidas a la primera redSocial para mujeres deportistas</h2>
-       <input type="email" placeholder="Correo Electronico">
-       <input type="password" placeholder="Contraseña">
-         <button id="btn-login">Iniciar Sesión</button>
-<div id="icons-login">
-  <img src="img/Logo/facebook-rosa.png">
-  <img src="img/Logo/google-rosa.png">
-</div>
+  <div id="container">
 
-         <p>¿Aun no tienes cuenta?<br>Registrate aqui!</p>
-
-      </form>
-      </div>
-      <div class="container-form sign-up hidden" id="container-sign-up">
-        <form class="formulario">
-       <h2 class="form_title">Antes de Empezar cuentanos un poco sobre ti</h2>
-        <input type="text" placeholder="Usuario" >
-        <input type="text" placeholder="Nombre y Apellido" >
-        <input type="email" placeholder="Correo Electronico" >
+    <div class="view active" id="container-sign-in">
+      <div class="mobile-logo active"><img src="img/logo/logo-rosa.png"></div>
+      <form>
+        <h2 class="form_title">Bienvenidas a la primera redSocial para mujeres deportistas</h2>
+        <input type="email" placeholder="Correo Electronico">
         <input type="password" placeholder="Contraseña">
-          <button id="btn-sing-up">Registrarse</button>
-       </form>
-     </div>
+        <button id="btn-login">Iniciar Sesión</button>
+      </form>
+      <div class="icons-login active">
+        <img src="img/Logo/facebook-rosa.png">
+        <img src="img/Logo/google-rosa.png">
+      </div>
+      <p>¿Aun no tienes cuenta?<br></p><span id="register-link">Registrate aqui!</span>
+    </div>
+    <div class="view" id="container-sign-up">
+      <div class="mobile-logo active"><img src="img/logo/logo-rosa.png"></div>
+      <form>
+        <h2 class="form_title">Antes de Empezar cuentanos un poco sobre ti</h2>
+        <input type="text" placeholder="Usuario">
+        <input type="text" placeholder="Nombre y Apellido">
+        <input type="email" placeholder="Correo Electronico">
+        <input type="password" placeholder="Contraseña">
+        <button id="btn-sing-up">Registrarse</button>
+        <p class="session-text">¿Ya tienes cuenta?<br></p><span id="session-link">Inicia Sesión</span>
+      </form>
+    </div>
   </div>
-  <script type="module" src="main.js"></script>
+  <script type="module" src="./modules/index.js"></script>
 </body>
-</html>
 
+</html>
