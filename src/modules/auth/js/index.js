@@ -13,7 +13,8 @@ export default function init(){
 
 function addEvents() {
     document.getElementById("btn-login").addEventListener("click", login);
-    document.getElementById("register-link").addEventListener("click", goToRegister);   
+    document.getElementById("register-link").addEventListener("click", goToRegister);
+    document.getElementById("session-link").addEventListener("click", goToLogin)
 }
 
 function login(){
@@ -24,6 +25,7 @@ function login(){
     // signInWithEmailAndPassword(auth, email, password)
     // .then((userCredential) => {
     //     const user = userCredential.user;
+    
     // })
     // .catch((error) => {
     //     const errorCode = error.code;
@@ -34,6 +36,9 @@ function login(){
 
 function goToRegister() {
     goTo("container-sign-up");
+}
+function goToLogin() {
+    goTo("container-sign-in");
 }
 
 function initilalizeFirebase () {

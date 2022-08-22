@@ -1,12 +1,35 @@
 @import "./lg.css";
 @import "./md.css";
 
-#container-sign-in{
-    display: block;
-  }
-  
-  #container-sign-up{
-    display: none;
-  }
-  
+
+.form_title{
+  text-align: center;
+  font-size: 1rem;
+  padding: 1rem 0;
+  margin: 5%;
+}
+
+.mobile-logo img{
+  width: 35%;
+  display: initial;
+  margin-top: 10%;
+}
+.icons-login img{
+  height: 100%;
+}
  
+.icons-login{
+    height: 6vh;
+    display: flex;
+    justify-content: space-around;
+    margin: 8%;
+  }
+
+#register-link, #session-link{
+  color: var(--pink);
+  font-weight: 600;
+}
+
+.session-text{
+  margin-top: 6%;
+}

@@ -1,5 +1,6 @@
 @import "./lg.css";
 @import "./md.css";
+@import url('https://fonts.googleapis.com/css2?family=Asap&family=Vollkorn:ital,wght@1,800&display=swap');
 
 #container div {
 display: none;
@@ -8,3 +9,60 @@ display: none;
 .active{
     display: block !important;
   }
+
+  :root{
+    --body-font: 'Asap', sans-serif;
+    --title-font: 'Vollkorn', serif;
+    --background-color: #F5F5FA;  
+    --pink: #E55381; 
+  }
+  
+  *{
+      margin: 0%;
+      padding: 0;
+      cursor: pointer;
+      box-sizing: border-box;
+      font-family: var(--body-font);
+      background-color: var(--background-color);
+    }
+
+    #container{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  
+    button {
+      padding: 10px;
+      font-weight: 400;
+      background-color:var(--pink);
+      border-radius: 2px;
+      border: none;
+      cursor: pointer;
+      font-size: .9rem;
+      margin-top: 1rem;
+      transition: all .3s ease-in;
+      color: white;
+    }
+
+    input {
+      height: 5vh;
+      width: 90%;
+      display: block;
+      margin: auto;
+      margin-bottom: 1rem;
+      text-align: center;
+      padding: .2rem 0;
+      font-size: .9rem;
+      color: black;
+      background: white;
+      box-shadow: 0 5px 10px -5px;
+      border: 1px solid lightgrey;
+      border-bottom-width: 2px;
+      border-radius: 5px;
+    }
+    input:focus{
+      border: 2px solid var(--pink);
+    }
