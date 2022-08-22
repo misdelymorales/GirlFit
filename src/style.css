@@ -103,14 +103,14 @@
 }
 
 .hidden{
-  content-visibility: hidden;
+  display: none;
 }
 
 /* .active {
   content-visibility: visi;
 } */
 
-.sing-in {
+/* .sing-in {
  position: absolute;
  opacity: 0;
  visibility: hidden;
@@ -124,4 +124,4 @@
 .sing-up.active {
   opacity: 0;
   visibility: hidden;
-}
+} */
