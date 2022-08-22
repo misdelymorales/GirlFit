@@ -1,14 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Asap&family=Vollkorn:ital,wght@1,800&display=swap');
 
+
+:root{
+  --body-font: 'Asap', sans-serif;
+  --title-font: 'Vollkorn', serif;
+  --background-color: #F5F5FA;  
+  --pink: #E55381; 
+}
+
 *{
     margin: 0%;
     padding: 0;
     cursor: pointer;
     box-sizing: border-box;
-    font-family: 'roboto', sans-serif;
+    font-family: var(--body-font);
+    background-color: var(--background-color);
   }
 
-  body {
+  /* body {
     width: 100%;
     display: flex;
     align-items: center;
@@ -18,62 +27,61 @@
     background-repeat: no-repeat;
     background-size: cover;
     backdrop-filter: blur(2px);
-  }
+  } */
 
-  img {
-    width: 10%;
-    margin: 2px;
-  }
-
-  header {
-    background-color: #E55381;
+  /* header {
+    background-color: var(--pink);
     width: 100%;
-  }
+  } */
    
+  #container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .mobile-logo img{
+    width: 40%;
+    display: initial;
+    margin-top: 15%;
+  }
+  
   .container-form{
-    width: 70%;
-    height: 70vh;
     display: flex;
     justify-content: space-around;
     transition: all .5s ease-out;
   }
   
   .formulario {
-    width: 300px;
-    height: 350px;
-    margin: 2rem;
-    padding: 1rem;
-    background-color: rgb(255, 255, 255, 0.4);
-   /* opacity: 0.6;*/
+    width: 80%;
+    height: 100vh;
     text-align: center;
-    border-radius: 15px;
-    backdrop-filter: blur(2px);
   }
 
   button {
     padding: 10px;
     font-weight: 400;
-    background-color: #E55381;
+    background-color:var(--pink);
     border-radius: 2px;
     border: none;
     cursor: pointer;
     font-size: .9rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
     transition: all .3s ease-in;
     color: white;
-  }
-
-  button:hover{
-    background: black;
   }
 
   .form_title {
     font-size: 1rem;
     padding: 1rem 0;
+    margin: 5%;
   }
 
    input {
-    width: 70%;
+    height: 7%;
+    width: 100%;
     display: block;
     margin: auto;
     margin-bottom: 1rem;
@@ -86,3 +94,34 @@
     border: none;
   }
 
+  #icons-login{
+  height: 8%;
+  display: flex;
+  justify-content: center;
+  gap: 6%;
+  margin: 8%;
+}
+
+.hidden{
+  content-visibility: hidden;
+}
+
+/* .active {
+  content-visibility: visi;
+} */
+
+.sing-in {
+ position: absolute;
+ opacity: 0;
+ visibility: hidden;
+}
+
+.sing-in.active{
+  opacity: 1;
+  visibility: hidden;
+}
+
+.sing-up.active {
+  opacity: 0;
+  visibility: hidden;
+}
