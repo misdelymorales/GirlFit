@@ -10,9 +10,59 @@
   <title>GirlFit</title>
 </head>
 <body>
-   <div id="container">
+  <div class="wrapper">
+    <div class="title-text">
+       <div class="title login">
+          Iniciar Sesion
+       </div>
+       <div class="title signup">
+          Registrate
+       </div>
+    </div>
+    <div class="form-container">
+       <div class="form-inner">
+          <form action="#" class="login">
+             <div class="field">
+                <input type="text" placeholder="Email Address" required>
+             </div>
+             <div class="field">
+                <input type="password" placeholder="Password" required>
+             </div>
+             <div class="pass-link">
+                <a href="#">Forgot password?</a>
+             </div>
+             <div class="field btn">
+                <div class="btn-layer"></div>
+                <input type="submit" value="Login">
+             </div>
+             <div class="signup-link">
+                Not a member? <a href="">Signup now</a>
+             </div>
+          </form>
+          <form action="#" class="signup">
+            <div class="field">
+               <input type="text" placeholder="Email Address" required>
+            </div>
+            <div class="field">
+               <input type="password" placeholder="Password" required>
+            </div>
+            <div class="field">
+              <input type="password" placeholder="Confirm Password" required>
+           </div>
+            <div class="field btn">
+               <div class="btn-layer"></div>
+               <input type="submit" value="Sign up">
+            </div>
+            <div class="signup-link">
+            </div>
+         </form>
+       </div>
+    </div>
+  </div>
+
+<!--  <div id="container">
       <div class="mobile-logo"><img src="img/logo/logo-rosa.png"></div>
-     <div class="container-form sign-in" id="container-sing-in">
+     <div class="container-form" id="container-sing-in">
       <form class="formulario">
       <h2 class="form_title">Bienvenidas a la primera redSocial para mujeres deportistas</h2>
        <input type="email" placeholder="Correo Electronico">
@@ -27,7 +77,7 @@
 
       </form>
       </div>
-      <div class="container-form sign-up hidden" id="container-sign-up">
+      <div class="container-form" id="container-sign-up" style="display: none">
         <form class="formulario">
        <h2 class="form_title">Antes de Empezar cuentanos un poco sobre ti</h2>
         <input type="text" placeholder="Usuario" >
@@ -37,7 +87,7 @@
           <button id="btn-sing-up">Registrarse</button>
        </form>
      </div>
-  </div>
+  </div>-->
   <script type="module" src="main.js"></script>
 </body>
 </html>
