@@ -1,13 +1,16 @@
-export default function (){
+/**
+ * Está función contiene el código que se ejecuta al inicializar el módulo
+ */
+export default function(){
+    console.info("shared initialized");
+}
 
-    /**
-     * Está función contiene el código que se ejecuta al inicializar el módulo
-     */
-    (function init(){
-        console.info("shared initialized");
-    })();
-    
-    function showWelcome(){
-        alert("Bienvenida a GirlFit");
+export function goTo(where) {
+    const views = document.querySelectorAll(".view");
+    if(views){
+        views.forEach(view => {
+            view.classList.remove("active");
+        })
     }
-};
+    document.getElementById(where).classList.add("active");
+}

@@ -1,3 +1,10 @@
 @import "./lg.css";
 @import "./md.css";
 
+#container div {
+display: none;
+}
+
+.active{
+    display: block !important;
+  }

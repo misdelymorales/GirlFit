@@ -110,13 +110,13 @@
   content-visibility: visi;
 } */
 
-/* .sing-in {
+ /* .sing-in {
  position: absolute;
  opacity: 0;
  visibility: hidden;
-}
+} */
 
-.sing-in.active{
+/*.sing-in.active{
   opacity: 1;
   visibility: hidden;
 }
@@ -125,3 +125,4 @@
   opacity: 0;
   visibility: hidden;
 } */
+
