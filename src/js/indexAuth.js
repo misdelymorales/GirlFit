@@ -2,7 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
 // import { getDatabase } from "firebase/database";
-import {goTo} from "../../shared/javascript-shared/index-shared.js";
+import {goTo} from "./indexShared.js";
 
 
 /**
