@@ -11,6 +11,7 @@
     display: initial;
     margin-top: 10%;
   }
+  
   .icons-login img{
     height: 100%;
   }
@@ -29,4 +30,8 @@
   
   .session-text{
     margin-top: 6%;
+  }
+
+  .desktop-logo {
+    display: none;
   }
