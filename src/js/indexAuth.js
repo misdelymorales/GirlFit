@@ -36,7 +36,8 @@ function register(){
     .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        // ...
+        // limpiar formulario
+
         console.info("usuario creado correctamente");
       })
       .catch((error) => {
@@ -92,7 +93,7 @@ function loginUsingGoogle(){
   });
 }
 
-
+//Configuración FIREBASE
 function initilalizeFirebase () {
     const firebaseConfig = {
         apiKey: "AIzaSyAlSrkSdzAr2miMg3q0c0_ZWOqIL1EkANs",
