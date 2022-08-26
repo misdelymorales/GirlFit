@@ -69,7 +69,21 @@ function login(){
   });
 }
 
-function loginUsingGoogle(){
+// function LoginGoogle(){
+  //let providers = ArrayListof(
+      //AuthUI.IdpConfig.GoogleBuilder().build())
+
+ //Btn_login.setOnClickListener { it:view 
+ //signInIntent = AuthUI.getInstance()
+       // .createSignInIntentBuilder()
+       // .setAvailableProviders(providers)
+        //.build();
+//signInLauncher.launch(signInIntent);
+ //}
+
+//}//
+
+
 
     const provider = new GoogleAuthProvider();
     const auth = getAuth();
@@ -91,7 +105,6 @@ function loginUsingGoogle(){
     const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
   });
-}
 
 //Configuración FIREBASE
 function initilalizeFirebase () {
