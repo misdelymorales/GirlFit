@@ -12,7 +12,7 @@
       backdrop-filter: blur(2px);
     }
     
-    header {
+    nav {
       background-color: #E55381;
       width: 100%;
     }
@@ -72,9 +72,5 @@
       box-shadow: 0 5px 10px -5px;
       border: none;
     }
-
-    .mobile-logo {   
-      display: none;
-    }
-
+    
 }
