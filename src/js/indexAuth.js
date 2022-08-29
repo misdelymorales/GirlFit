@@ -18,7 +18,7 @@ let app;
 
 //Función de eventos
 function addEvents() {
-    //document.getElementById("login-google").addEventListener("click", loginUsingGoogle);//
+    document.getElementById("login-google").addEventListener("click", loginUsingGoogle);
     document.getElementById("btn-login").addEventListener("click", login);
     document.getElementById("btn-sing-up").addEventListener("click", register);
     document.getElementById("register-link").addEventListener("click", ()=>goTo("container-sign-up")); //evento que cambia vista de registro
@@ -68,6 +68,22 @@ function login(){
     console.error("usuario no encontrado");
   });
 }
+
+const loginUsingGoogle = () => {
+  loginUsingGoogleWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+    
+      return credential;
+    })
+    .catch((error) => {
+      
+      const errorCode = error.code;
+    
+      return errorCode;
+    });
+};
 
 // function LoginGoogle(){
   //let providers = ArrayListof(
