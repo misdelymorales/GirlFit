@@ -1,37 +1,121 @@
-
 .form_title{
-    text-align: center;
-    font-size: 1rem;
-    padding: 1rem 0;
-    margin: 5%;
-  }
-  
-  .mobile-logo img{
-    width: 35%;
-    display: initial;
-    margin-top: 10%;
-  }
-  
-  .icons-login img{
-    height: 100%;
-  }
-   
-  .icons-login{
-      height: 6vh;
-      display: flex;
-      justify-content: space-around;
-      margin: 8%;
-    }
-  
-  #register-link, #session-link{
-    color: var(--pink);
-    font-weight: 600;
-  }
-  
-  .session-text{
-    margin-top: 6%;
+  text-align: center;
+  font-size: 1rem;
+  padding: 1rem 0;
+  margin: 5%;
+}
+
+.mobile-logo img{
+  width: 35%;
+  display: initial;
+  margin-top: 10%;
+}
+
+.icons-login img{
+  height: 100%;
+}
+ 
+.icons-login{
+    height: 6vh;
+    display: flex;
+    justify-content: space-around;
+    margin: 8%;
   }
 
-  .desktop-logo {
-    display: none;
-  }
+#register-link, #session-link{
+  color: var(--pink);
+  font-weight: 600;
+}
+
+.session-text{
+  margin-top: 6%;
+}
+
+.desktop-logo {
+  display: none;
+}
+
+nav{
+  display: none;
+}
+
+@media (min-width: 800px) {
+
+#container{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-image: url("../img/Imagenes/bruce-mars-ZXq7xoo98b0-unsplash.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#container-sign-in {
+    width: 30%;
+    height: 70%;
+    margin: 2rem;
+    padding: 1rem;
+    background-color: var(--background-color-opacity);
+    border-radius: 20px;
+    cursor: pointer;
+    margin: auto 33%;
+}
+
+.mobile-logo img {
+  display: none;
+}
+
+nav { 
+margin:0%;   
+background-color: var(--pink);
+width: 100%;
+height: 10vh;
+display: flex;
+justify-content: space-between;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+nav ul li {
+  list-style-type: none;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+nav ul li a {
+text-decoration: none;
+background-color:#fff;
+color: black;
+opacity:.42; 
+padding: 8px 16px;
+border-radius: 20px;
+}
+
+nav a:hover {
+background-color: gray;
+}
+
+.logo {
+  padding-left: 20px;
+  height: 3rem;
+}
+
+#container-sign-up {
+  width: 30%;
+  height: 70%;
+  margin: 2rem;
+  padding: 1rem;
+  background-color: var(--background-color-opacity);
+  border-radius: 20px;
+  cursor: pointer;
+  margin: auto 33%;
+ }
+
+}
