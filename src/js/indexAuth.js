@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
 // import { getDatabase } from "firebase/database";
 import {goTo} from "./indexShared.js";
 
@@ -18,11 +18,12 @@ let app;
 
 //Función de eventos
 function addEvents() {
-    document.getElementById("login-google").addEventListener("click", signWithGoogle);
-    document.getElementById("btn-login").addEventListener("click", login);
-    document.getElementById("btn-sing-up").addEventListener("click", register);
     document.getElementById("register-link").addEventListener("click", ()=>goTo("container-sign-up")); //evento que cambia vista de registro
     document.getElementById("session-link").addEventListener("click", ()=>goTo("container-sign-in")); //evento que cambia vista de inicio
+    document.getElementById("btn-login").addEventListener("click", login);
+    document.getElementById("btn-sing-up").addEventListener("click", register);
+    document.getElementById("login-google").addEventListener("click", signWithGoogle);
+    document.getElementById("login-facebook").addEventListener("click", signWithFacebook);
 }
 //Función de Registarse
 function register(){
@@ -94,6 +95,34 @@ const signWithGoogle = () => {
       return errorCode;
     });
 };
+
+//Iniciar sesión con Facebook
+const signWithFacebook = () => {
+  const auth = getAuth();
+  const provider = new FacebookAuthProvider();
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      // The signed-in user info.
+      // const user = result.user;
+  
+      // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+      const credential = FacebookAuthProvider.credentialFromResult(result);
+      // const accessToken = credential.accessToken;
+  
+      return credential
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      // const errorMessage = error.message;
+      // The email of the user's account used.
+      // const email = error.customData.email;
+      // The AuthCredential type that was used.
+      // const credential = FacebookAuthProvider.credentialFromError(error);
+  
+      return errorCode
+    });
+}
 
 //Configuración FIREBASE
 function initilalizeFirebase () {
