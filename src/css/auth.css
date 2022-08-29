@@ -61,6 +61,7 @@ nav{
     border-radius: 20px;
     cursor: pointer;
     margin: auto 33%;
+    margin-top: 5%;
 }
 
 .mobile-logo img {
@@ -77,7 +78,7 @@ justify-content: space-between;
 }
 
 nav ul {
-  display: flex;
+  display: none;
   justify-content: space-evenly;
 }
 
@@ -116,6 +117,15 @@ background-color: gray;
   border-radius: 20px;
   cursor: pointer;
   margin: auto 33%;
+  margin-top: 5%;
  }
+
+ .icons-login{
+  display: flow-root;
+ }
+
+ .session-text{
+  margin-top: 15%;
+}
 
 }
