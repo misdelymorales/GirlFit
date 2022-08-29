@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
 // import { getDatabase } from "firebase/database";
 import {goTo} from "./indexShared.js";
 
@@ -18,19 +18,18 @@ let app;
 
 //Función de eventos
 function addEvents() {
-    document.getElementById("login-google").addEventListener("click", loginUsingGoogle);
+    document.getElementById("login-google").addEventListener("click", signWithGoogle);
     document.getElementById("btn-login").addEventListener("click", login);
     document.getElementById("btn-sing-up").addEventListener("click", register);
     document.getElementById("register-link").addEventListener("click", ()=>goTo("container-sign-up")); //evento que cambia vista de registro
     document.getElementById("session-link").addEventListener("click", ()=>goTo("container-sign-in")); //evento que cambia vista de inicio
 }
-//sign-up//
-
+//Función de Registarse
 function register(){
     //Obtener usuario y contraseña del dom
     const email= document.getElementById("register-email").value;
     const password = document.getElementById("register-password").value;
-    const auth = getAuth(app);
+    
     
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -47,8 +46,7 @@ function register(){
       });
 }
 
-//sign-in//
-
+//Función de Iniciar sesión
 function login(){
 //usuario entre en la aplicación//
     const email= document.getElementById("login-email").value;
@@ -69,6 +67,7 @@ function login(){
   });
 }
 
+<<<<<<< HEAD
 const auth = getAuth();
 signInWithPopup(auth, provider)
   .then((result) => {
@@ -129,6 +128,35 @@ signInWithPopup(auth, provider)
   //});
 
 //}
+=======
+//Función para iniciar sesión con Google
+const signWithGoogle = () => {
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      // const token = credential.accessToken;
+      // The signed-in user info.
+      // const user = result.user;
+      // ...
+      // console.log('resultó google jeje');
+      return credential;
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      // const errorMessage = error.message;
+      // The email of the user's account used.
+      // const email = error.customData.email;
+      // The AuthCredential type that was used.
+      // const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+      return errorCode;
+    });
+};
+>>>>>>> refs/remotes/origin/main
 
 //Configuración FIREBASE
 function initilalizeFirebase () {
