@@ -12,49 +12,30 @@
 </head>
 
 <body>
-  <div id="container">
-    <nav>
-      <div class="logo">
-        <img class="logo" src="img/Logo/logo-header.png">
-      </div>
-      <ul>
-        <li> <a href="Sing In">Sing In </a></li>
-        <li> <a href="Sing Up">Sing Up </a></li>
-      </ul>
-    </nav>
+  <!--Nav-->
+  <nav>
+    <div class="logo">
+      <img class="logo" src="img/Logo/logo-header.png">
+    </div>
+    <ul>
+      <li> <a href="Sing In">Sing In </a></li>
+      <li> <a href="Sing Up">Sing Up </a></li>
+    </ul>
+  </nav>
 
-    <div class="view active">
-    </div>
-    <div class="mobile-logo active">
-      <img src="img/Logo/logo-header-rosa.png">
-    </div>
-    <div class="view active" id="container-sign-in">
-      <div class="mobile-logo"><img src="img/logo/logo-rosa.png"></div>
+  <!--Div container-->
+  <div id="container"></div>
 
-      <form>
-        <h2 class="form_title">Bienvenidas a la primera redSocial para mujeres deportistas</h2>
-        <input type="email" id="login-email" placeholder="Correo Electronico">
-        <input type="password" id="login-password" placeholder="Contraseña">
-      </form>
-      <button id="btn-login">Iniciar Sesión</button>
-      <div class="icons-login">
-        <img id="login-facebook" src="img/Logo/facebook-rosa.png">
-        <img id="login-google" src="img/Logo/google-rosa.png">
-      </div>
-      <p>¿Aun no tienes cuenta?<br></p><span id="register-link">Registrate aqui!</span>
-    </div>
-    <div class="view" id="container-sign-up">
-      <div class="mobile-logo "><img src="img/logo/logo-rosa.png"></div>
-      <form id="signup-form">
-        <h2 class="form_title">Antes de Empezar cuentanos un poco sobre ti</h2>
-        <input type="email" id="register-email" placeholder="Correo Electronico">
-        <input type="password" id="register-password" placeholder="Contraseña">
-        <p class="session-text">¿Ya tienes cuenta?<br></p><span id="session-link">Inicia Sesión</span>
-      </form>
-      <button type="submit" id="btn-sing-up">Registrarse</button>
-    </div>
-  </div>
-  <script type="module" src="./js/index.js"></script>
+  <!--Div root-->
+  <div id="root"></div>
+
+  <!--Script-->
+  <script type="module" src="./index.js"></script>
+
+  <!--Footer-->
+  <footer>
+    <p>© 2022 Luisa C. & Misdely M.</p>
+  </footer>
 </body>
 
 </html>
