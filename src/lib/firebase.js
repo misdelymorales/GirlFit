@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword, 
   signInWithPopup, 
   GoogleAuthProvider, 
+  onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
 
  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
@@ -30,9 +31,9 @@ export function register(email, password){
     .then((userCredential) => {
         //// Signed in
         const user = userCredential.user;
-        //// limpiar formulario
+      emailVerification(auth);
 
-        console.info("usuario creado correctamente");
+        alert("usuario creado correctamente");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -82,5 +83,26 @@ const signWithGoogle = () => {
       //// ...
       return errorCode;
     });
-};
+   
+  };
 
+    function emailVerification(auth) {
+      sendEmailVerification(auth.currentUser)
+        .then(() => {
+          alert('Te hemos enviado una confirmación a tu correo por favor válida antes de comenzar.');
+        });
+    }
+
+//Estado de autenticación y datos del usuario
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const currentUser = auth.currentUser;
+      window.location.hash = '#/feed';
+      return currentUser;
+    }
+    window.location.hash = '#/login';
+    alert('no estás logueada');
+    return ('not logged');
+    
+  });
