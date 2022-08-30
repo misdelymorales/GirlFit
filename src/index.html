@@ -19,7 +19,36 @@
   </div>
 
   <!--Script-->
-  <script type="module" src="./js/index.js"></script>
+  <script type="module" src="./index.js"></script>
+  <script type="text/javascript">
+    var a = 5;
+    var b = 4;
+
+    function rand(max) {
+      return Math.floor(Math.random() * max) + 1;
+    }
+
+    function calcular() {
+      return new Promise((resolve, reject) => {
+        setTimeout(function () {
+          var number = rand(10); //1 - 10
+          console.log({ number })
+          if (number % 2 === 0)
+            return resolve(10);
+          else
+            return reject(100);
+        }, 3000)
+      })
+    }
+
+    calcular()
+      .then((c) => {
+        console.log(c + a); //15
+      })
+      .catch((e) => {
+        console.error(e + b); //104
+      })
+  </script>
 
   <!--Footer-->
   <footer>
