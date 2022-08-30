@@ -81,10 +81,3 @@ display: none;
       bottom: 0;
       width: 100%;
     }
-
-    @media (max-width: 800px){
-     footer{
-      display: none;
-    }
-
-    }
