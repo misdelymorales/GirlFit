@@ -22,7 +22,7 @@ const getUserData = () => auth.currentUser;
 //     document.getElementById("login-facebook").addEventListener("click", signWithFacebook);
 // }
 //Función de Registarse
-function register(){
+export function register(){
     //Obtener usuario y contraseña del dom
     const email= document.getElementById("register-email").value; 
     const password = document.getElementById("register-password").value;
@@ -43,7 +43,7 @@ function register(){
 }
 
 //Función de Iniciar sesión
-function login(){
+export function login(){
     signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in
