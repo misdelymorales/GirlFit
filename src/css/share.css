@@ -36,7 +36,7 @@ display: none;
       padding: 10px;
       font-weight: 400;
       background-color:var(--pink);
-      border-radius: 2px;
+      border-radius: 8px;
       border: none;
       cursor: pointer;
       font-size: .9rem;
@@ -56,10 +56,8 @@ display: none;
       font-size: .9rem;
       color: black;
       background: white;
-      box-shadow: 0 5px 10px -5px;
       border: 1px solid lightgrey;
-      border-bottom-width: 2px;
-      border-radius: 5px;
+      border-radius: 8px;
     }
     
     input:focus{
