@@ -1,64 +1,67 @@
-//import { 
-  //getAuth, 
-  //createUserWithEmailAndPassword, 
-  //signInWithEmailAndPassword, 
-  //signInWithPopup, 
-  //GoogleAuthProvider, 
-//} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";//
+import { 
+  getAuth, 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword, 
+  signInWithPopup, 
+  GoogleAuthProvider, 
+} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
 
-//import {app} from "./configFirebase.js"
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
 
-//const auth = getAuth();
-//const provider = new GoogleAuthProvider();
-//const getUserData = () => auth.currentUser;
+ const firebaseConfig = {
+     apiKey: "AIzaSyAlSrkSdzAr2miMg3q0c0_ZWOqIL1EkANs",
+     authDomain: "girlfit-94742.firebaseapp.com",
+     databaseURL: "https://girlfit-94742-default-rtdb.firebaseio.com",
+     projectId: "girlfit-94742",
+     storageBucket: "girlfit-94742.appspot.com",
+     messagingSenderId: "20460878579",
+     appId: "1:20460878579:web:4e56d9c5aadeb762221586"
+   };
+ 
+ export const app = initializeApp(firebaseConfig);
 
-//Función de eventos
-// function addEvents() {
-//     document.getElementById("register-link").addEventListener("click", ()=>goTo("container-sign-up")); //evento que cambia vista de registro
-//     document.getElementById("session-link").addEventListener("click", ()=>goTo("container-sign-in")); //evento que cambia vista de inicio
-//     document.getElementById("btn-login").addEventListener("click", login);
-//     document.getElementById("btn-sing-up").addEventListener("click", register);
-//     document.getElementById("login-google").addEventListener("click", signWithGoogle);
-//     document.getElementById("login-facebook").addEventListener("click", signWithFacebook);
-// }
+const auth = getAuth();
+const getUserData = () => auth.currentUser;
+
 //Función de Registarse
-//export function register(){
+export function register(email, password){
     
-    //createUserWithEmailAndPassword(auth, email, password)
-    //.then((userCredential) => {
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
         //// Signed in
-        //const user = userCredential.user;
+        const user = userCredential.user;
         //// limpiar formulario
 
-        //console.info("usuario creado correctamente");
-      //})
-      //.catch((error) => {
-        //const errorCode = error.code;
-        //const errorMessage = error.message;
-        //console.error("error al crear usuario");
-      //});
-//}
+        console.info("usuario creado correctamente");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error("error al crear usuario");
+      });
+}
 
 ////Función de Iniciar sesión
-//export function login(){
-    //signInWithEmailAndPassword(auth, email, password)
-  //.then((userCredential) => {
+export function login(){
+    signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
     // Signed in
-    //const user = userCredential.user;
+    const user = userCredential.user;
     // ...
     //console.info("inicio sesion")
-  //})
-  //.catch((error) => {
-    //const errorCode = error.code;
-    //const errorMessage = error.message;
-    //console.error("usuario no encontrado");
-  //});
-//}
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.error("usuario no encontrado");
+  });
+}
 
 ////Función para iniciar sesión con Google
-//const signWithGoogle = () => {
-  //signInWithPopup(auth, provider)
-    //.then((result) => {
+const signWithGoogle = () => {
+  const provider = new GoogleAuthProvider();
+  signInWithPopup(auth, provider)
+    .then((result) => {
       //// This gives you a Google Access Token. You can use it to access the Google API.
       ////const credential = GoogleAuthProvider.credentialFromResult(result);
       //// const token = credential.accessToken;
@@ -66,18 +69,18 @@
       //// const user = result.user;
       //// ...
       //// console.log('resultó google jeje');
-      //return credential;
-    //})
-    //.catch((error) => {
+      return credential;
+    })
+    .catch((error) => {
       //// Handle Errors here.
-      //const errorCode = error.code;
+      const errorCode = error.code;
       //// const errorMessage = error.message;
       //// The email of the user's account used.
       //// const email = error.customData.email;
       //// The AuthCredential type that was used.
       //// const credential = GoogleAuthProvider.credentialFromError(error);
       //// ...
-      //return errorCode;
-    //});
-//};
+      return errorCode;
+    });
+};
 

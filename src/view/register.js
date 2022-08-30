@@ -1,7 +1,15 @@
 import {Component} from './component.js';
+import {register as registerFirebase} from '../lib/firebase.js';
 
 const onLoad = () => {
-    console.log("Registro cargado");
+    document.getElementById("btn-sing-up").addEventListener("click", handleRegisterClick);
+}
+
+const handleRegisterClick = () => {
+    const email= document.getElementById("register-email").value;
+    const password= document.getElementById("register-password").value;
+
+    registerFirebase(email,password);
 }
 
 const template = `
