@@ -1,16 +1,15 @@
 import {Component} from './component.js';
+import {login as loginFirebase} from '../lib/firebase.js';
 
-// const onLoad = () => {
-//     const welcomeBtn = document.getElementById('welcome-btn');
-//     welcomeBtn.addEventListener("click", showWelcome);
-// }
+const onLoad = () => {
+    document.getElementById("btn-sing-up").addEventListener("click", handleLoginClick);
+}
 
-// const showWelcome = () => {
-//     alert("Welcome");
-// }
+const handleLoginClick = () => {
+    const email= document.getElementById("register-email").value;
+    const password= document.getElementById("register-password").value;
 
-const Registrarse = () => {
-    alert("Registro Exitoso");
+    loginFirebase(email,password);
 }
 
 const template = `
