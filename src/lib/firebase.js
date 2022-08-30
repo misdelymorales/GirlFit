@@ -23,9 +23,6 @@ const getUserData = () => auth.currentUser;
 // }
 //Función de Registarse
 export function register(){
-    //Obtener usuario y contraseña del dom
-    const email= document.getElementById("register-email").value; 
-    const password = document.getElementById("register-password").value;
     
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -60,8 +57,6 @@ export function login(){
 
 //Función para iniciar sesión con Google
 const signWithGoogle = () => {
-  const auth = getAuth(app);
-  const provider = new GoogleAuthProvider();
   signInWithPopup(auth, provider)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
