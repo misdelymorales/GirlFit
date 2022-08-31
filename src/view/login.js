@@ -20,7 +20,6 @@ const handleLoginClick = () => {
 const template = `
 <div class="view active" id="container-sign-in">
 <div class="mobile-logo"><img src="img/logo/logo-rosa.png"></div>
-
 <form>
     <h2 class="form_title">Bienvenidas a la primera redSocial para mujeres deportistas</h2>
     <input type="email" id="login-email" placeholder="Correo Electronico">

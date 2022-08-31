@@ -22,7 +22,7 @@
     margin: 8%;
   }
 
-a{
+a {
   color: var(--pink);
   font-weight: 600;
 }
@@ -34,8 +34,6 @@ a{
 .desktop-logo {
   display: none;
 }
-
-
 
 @media (min-width: 800px) {
 
@@ -82,7 +80,15 @@ a{
   cursor: pointer;
   margin: auto 33%;
   margin-top: 5%;
-  text-align: center;
  }
 
+ .icons-login{
+  display: flow-root;
+ }
+
+ .session-text{
+  margin-top: 15%;
 }
+
+}
+
