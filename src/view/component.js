@@ -1,6 +1,6 @@
 export function Component(template, load) {
-    this.render = function(){
-        const root = document.getElementById('root');
+    this.render = function(id){
+        const root = document.getElementById(id || 'root');
         root.innerHTML = template;
         if(load) load();
     }

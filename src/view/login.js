@@ -3,17 +3,16 @@ import {login as loginFirebase} from '../lib/firebase.js';
 import {signWithGoogle as signWithGoogleFirebase} from '../lib/firebase.js';
 
 const onLoad = () => {
-    document.getElementById("btn-sing-up").addEventListener("click", handleLoginClick);
-    document.getElementById("login-google").addEventListener("click", handleLoginClick);
+    nav.render('nav');
+    document.getElementById("btn-login").addEventListener("click", handleLoginClick);
+    document.getElementById("login-google").addEventListener("click", signWithGoogle);
 }
 
 const handleLoginClick = () => {
-    const email= document.getElementById("register-email").value;
-    const password= document.getElementById("register-password").value;
-    const signWithGoogle= document.getElementById("resgister-google").value;
+    const email= document.getElementById("login-email").value;
+    const password= document.getElementById("login-password").value;
 
     loginFirebase(email,password);
-    signWithGoogleFirebase(signWithGoogle);
 }
 
 const template = `
@@ -35,4 +34,4 @@ const template = `
 </div>
 `;
 
-export const login = new Component(template);
+export const login = new Component(template, onLoad);

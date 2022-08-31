@@ -1,7 +1,9 @@
 import {Component} from './component.js';
 import {register as registerFirebase} from '../lib/firebase.js';
+import {nav} from './components/nav.js';
 
 const onLoad = () => {
+    nav.render('nav');
     document.getElementById("btn-sing-up").addEventListener("click", handleRegisterClick);
 }
 
