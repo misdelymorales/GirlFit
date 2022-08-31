@@ -43,7 +43,7 @@ export function register(email, password){
 }
 
 ////Función de Iniciar sesión
-export function login(){
+export function login(email, password){
     signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in
@@ -59,7 +59,7 @@ export function login(){
 }
 
 ////Función para iniciar sesión con Google
-const signWithGoogle = () => {
+export const signWithGoogle = () => {
   const provider = new GoogleAuthProvider();
   signInWithPopup(auth, provider)
     .then((result) => {
@@ -94,7 +94,7 @@ const signWithGoogle = () => {
     }
 
 //Estado de autenticación y datos del usuario
-
+export const stateUser = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
       const currentUser = auth.currentUser;
@@ -102,7 +102,7 @@ const signWithGoogle = () => {
       return currentUser;
     }
     window.location.hash = '#/login';
-    alert('no estás logueada');
     return ('not logged');
     
-  });
+  })
+};
