@@ -1,15 +1,20 @@
 import {Component} from './component.js';
 import {login as loginFirebase} from '../lib/firebase.js';
+import {signWithGoogle} from '../lib/firebase.js';
+import {nav} from './components/nav.js';
 
 const onLoad = () => {
-    document.getElementById("btn-sing-up").addEventListener("click", handleLoginClick);
+    nav.render('nav');
+    document.getElementById("btn-login").addEventListener("click", handleLoginClick);
+    document.getElementById("login-google").addEventListener("click", signWithGoogle);
 }
 
 const handleLoginClick = () => {
-    const email= document.getElementById("register-email").value;
-    const password= document.getElementById("register-password").value;
+    const email= document.getElementById("login-email").value;
+    const password= document.getElementById("login-password").value;
 
     loginFirebase(email,password);
+    
 }
 
 const template = `
@@ -31,4 +36,4 @@ const template = `
 </div>
 `;
 
-export const login = new Component(template);
+export const login = new Component(template, onLoad);
