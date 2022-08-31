@@ -9,8 +9,6 @@ const myRouter = (hash) => {
         break;
       case '#/register': register.render();
         break;
-        //case '#/feed': feed.render();
-        //break;
       case '#/feed': feed.render();
         break;
     }     

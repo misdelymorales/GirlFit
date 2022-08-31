@@ -1,6 +1,7 @@
 import {Component} from './component.js';
 import {login as loginFirebase} from '../lib/firebase.js';
-import {signWithGoogle as signWithGoogleFirebase} from '../lib/firebase.js';
+import {signWithGoogle} from '../lib/firebase.js';
+import {nav} from './components/nav.js';
 
 const onLoad = () => {
     nav.render('nav');
@@ -13,12 +14,12 @@ const handleLoginClick = () => {
     const password= document.getElementById("login-password").value;
 
     loginFirebase(email,password);
+    
 }
 
 const template = `
 <div class="view active" id="container-sign-in">
 <div class="mobile-logo"><img src="img/logo/logo-rosa.png"></div>
-
 <form>
     <h2 class="form_title">Bienvenidas a la primera redSocial para mujeres deportistas</h2>
     <input type="email" id="login-email" placeholder="Correo Electronico">

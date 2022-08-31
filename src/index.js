@@ -14,6 +14,5 @@ init();
 //Cambio de ruta de página
 window.addEventListener('hashchange', () => {
     myRouter(window.location.hash);
-});
     nav.render('nav');
-
+});

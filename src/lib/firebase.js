@@ -22,7 +22,6 @@ import {
  export const app = initializeApp(firebaseConfig);
 
 const auth = getAuth();
-const provider = new GoogleAuthProvider();
 const getUserData = () => auth.currentUser;
 
 //Función de Registarse
@@ -32,6 +31,7 @@ export function register(email, password){
     .then((userCredential) => {
         //// Signed in
         const user = userCredential.user;
+      emailVerification(auth);
 
         alert("usuario creado correctamente");
       })
@@ -86,12 +86,12 @@ export const signWithGoogle = () => {
    
   };
 
-    //function emailVerification(auth) {
-     // sendEmailVerification(auth.currentUser)
-       // .then(() => {
-         // alert('Te hemos enviado una confirmación a tu correo por favor válida antes de comenzar.');
-        //});
-    //}
+    function emailVerification(auth) {
+      sendEmailVerification(auth.currentUser)
+        .then(() => {
+          alert('Te hemos enviado una confirmación a tu correo por favor válida antes de comenzar.');
+        });
+    }
 
 //Estado de autenticación y datos del usuario
 export const stateUser = () => {
