@@ -22,6 +22,7 @@ import {
  export const app = initializeApp(firebaseConfig);
 
 const auth = getAuth();
+const provider = new GoogleAuthProvider();
 const getUserData = () => auth.currentUser;
 
 //Función de Registarse
@@ -31,7 +32,6 @@ export function register(email, password){
     .then((userCredential) => {
         //// Signed in
         const user = userCredential.user;
-      emailVerification(auth);
 
         alert("usuario creado correctamente");
       })
@@ -59,8 +59,7 @@ export function login(){
 }
 
 ////Función para iniciar sesión con Google
-const signWithGoogle = () => {
-  const provider = new GoogleAuthProvider();
+export const signWithGoogle = () => {
   signInWithPopup(auth, provider)
     .then((result) => {
       //// This gives you a Google Access Token. You can use it to access the Google API.
@@ -86,12 +85,12 @@ const signWithGoogle = () => {
    
   };
 
-    function emailVerification(auth) {
-      sendEmailVerification(auth.currentUser)
-        .then(() => {
-          alert('Te hemos enviado una confirmación a tu correo por favor válida antes de comenzar.');
-        });
-    }
+    //function emailVerification(auth) {
+     // sendEmailVerification(auth.currentUser)
+       // .then(() => {
+         // alert('Te hemos enviado una confirmación a tu correo por favor válida antes de comenzar.');
+        //});
+    //}
 
 //Estado de autenticación y datos del usuario
 
