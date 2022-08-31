@@ -1,8 +1,8 @@
 import {Component} from './component.js';
-// import {nav} from './components/nav.js';
+import {nav} from './components/nav.js';
 
 const onLoad = () => {
-    // nav.render('nav');
+    nav.render('nav');
 }
 
 const template = `

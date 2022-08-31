@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Asap&family=Vollkorn:ital,wght@1,800&display=swap');
 
-#container .view {
-display: none;
-}
-
-.active{
-    display: block !important;
-  }
-
   :root{
     --body-font: 'Asap', sans-serif;
     --title-font: 'Vollkorn', serif;
@@ -73,6 +65,7 @@ display: none;
     }
 
     footer{
+      display: flex;
       background-color: rgba(0, 0, 0, 0.78);
       color: white;
       justify-content: space-around;
@@ -81,26 +74,43 @@ display: none;
       width: 100%;
     }
 
+    @media (max-width: 800px) {
+      nav ul li {
+        display: none;
+      }
+    }
+  
     @media (min-width: 800px) {
       nav { 
         margin:0%;   
         background-color: var(--pink);
         width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
+        min-height: 50px;
+        }
+
+        .nav-menu-icon {
+          width: 100%;
+          text-align: right;
+          display: block;
+          cursor: pointer;
+          color: white;
         }
         
         nav ul {
+          display: flex;
           justify-content: space-evenly;
         }
         
         nav ul li {
+          list-style-type: none;
           height: 30px;
           display: flex;
           align-items: center;
           margin: 10px;
         }
-        
+       
         nav ul li a {
         text-decoration: none;
         background-color:#fff;

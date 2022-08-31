@@ -16,6 +16,3 @@ window.addEventListener('hashchange', () => {
     myRouter(window.location.hash);
     nav.render('nav');
 });
-
-
-
