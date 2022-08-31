@@ -65,6 +65,7 @@
     }
 
     footer{
+      display: flex;
       background-color: rgba(0, 0, 0, 0.78);
       color: white;
       justify-content: space-around;
@@ -73,6 +74,12 @@
       width: 100%;
     }
 
+    @media (max-width: 800px) {
+      nav ul li {
+        display: none;
+      }
+    }
+  
     @media (min-width: 800px) {
       nav { 
         margin:0%;   
@@ -92,17 +99,18 @@
         }
         
         nav ul {
-          justify-content: space-around;
+          display: flex;
+          justify-content: space-evenly;
         }
         
         nav ul li {
+          list-style-type: none;
           height: 30px;
           display: flex;
           align-items: center;
           margin: 10px;
-          flex-direction: column;
         }
-        
+       
         nav ul li a {
         text-decoration: none;
         background-color:#fff;
@@ -116,6 +124,8 @@
         background-color: gray;
         }
         
-        
+        .nav-hidden{
+          display: none;
+        }
     }
 
