@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Asap&family=Vollkorn:ital,wght@1,800&display=swap');
 
-#container .view {
-display: none;
-}
-
-.active{
-    display: block !important;
-  }
-
   :root{
     --body-font: 'Asap', sans-serif;
     --title-font: 'Vollkorn', serif;
@@ -87,11 +79,20 @@ display: none;
         background-color: var(--pink);
         width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
+        min-height: 50px;
+        }
+
+        .nav-menu-icon {
+          width: 100%;
+          text-align: right;
+          display: block;
+          cursor: pointer;
+          color: white;
         }
         
         nav ul {
-          justify-content: space-evenly;
+          justify-content: space-around;
         }
         
         nav ul li {
@@ -99,6 +100,7 @@ display: none;
           display: flex;
           align-items: center;
           margin: 10px;
+          flex-direction: column;
         }
         
         nav ul li a {
@@ -114,8 +116,6 @@ display: none;
         background-color: gray;
         }
         
-        .nav-hidden{
-          display: none;
-        }
+        
     }
 
