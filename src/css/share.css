@@ -30,6 +30,7 @@
       text-align: center;
     }
   
+    /*Botones*/
     button {
       padding: 10px;
       font-weight: 400;
@@ -76,6 +77,35 @@
       border: 6px var(--pink);
       color: var(--pink);
     }
+
+/*Nav desplegable*/
+  .nav-menu-icon {
+    width: 50%;
+    text-align: right;
+    display: block;
+    cursor: pointer;
+    color: white;
+  }
+  .nav-menu-icon i:hover {
+    color: var(--background-color-opacity);
+  }
+  .nav-links {
+    display: none;
+  }
+  /* .nav-linksopen
+  .nav-links li {
+      flex-direction: column;
+  } */
+
+  /* .nav-links.open {
+    position: absolute;
+    width: 180px;
+    display: block;
+    height: auto;
+    top: 50px;
+    right: 0px;
+    background-color: #fff;
+  }  */
 
 
     @media (min-width: 800px) {
