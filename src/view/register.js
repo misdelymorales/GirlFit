@@ -15,7 +15,7 @@ const handleRegisterClick = () => {
 }
 
 const template = `
-  <div id="backg-imag"><div>
+  <div id="backg-imag"></div>
   <div id="container-sign-up">
       <div class="mobile-logo "><img src="img/logo/logo-rosa.png"></div>
       <form id="signup-form">
