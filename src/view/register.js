@@ -15,10 +15,10 @@ const handleRegisterClick = () => {
 }
 
 const template = `
-<div class="view" id="container-sign-up">
+<div id="container-sign-up">
 <div class="mobile-logo "><img src="img/logo/logo-rosa.png"></div>
 <form id="signup-form">
-  <h2 class="form_title">Antes de Empezar cuentanos un poco sobre ti</h2>
+  <h2 class="form_title">Bienvenidas a la primera redSocial para mujeres deportistas</h2>
   <input type="email" id="register-email" placeholder="Correo Electronico">
   <input type="password" id="register-password" placeholder="Contraseña">
   <p class="session-text">¿Ya tienes cuenta?<br></p>
