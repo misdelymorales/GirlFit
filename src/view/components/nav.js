@@ -6,7 +6,7 @@ import {Component} from '../component.js';
     <div ><img class="nav-menu-icon" src="img/Imagenes/nav.png">
         <ul clas="nav-links">
             <li> <a href="#">Editar Perfil </a></li>
-            <li> <a href="Sign in">Cerrar Sesión </a></li>
+            <li> <a href="Signin">Cerrar Sesión </a></li>
         </ul>
     </div>`;
 
