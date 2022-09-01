@@ -15,17 +15,17 @@ const handleRegisterClick = () => {
 }
 
 const template = `
-<div id="container-sign-up">
-<div class="mobile-logo "><img src="img/logo/logo-rosa.png"></div>
-<form id="signup-form">
-  <h2 class="form_title">Bienvenidas a la primera redSocial para mujeres deportistas</h2>
-  <input type="email" id="register-email" placeholder="Correo Electronico">
-  <input type="password" id="register-password" placeholder="Contraseña">
-  <p class="session-text">¿Ya tienes cuenta?<br></p>
-  <a href="#/login">Inicia Sesión</a>
-</form>
-<button type="submit" id="btn-sing-up">Registrarse</button>
-</div>
-`;
+  <div id="backg-imag"></div>
+  <div id="container-sign-up">
+      <div class="mobile-logo "><img src="img/logo/logo-rosa.png"></div>
+      <form id="signup-form">
+        <h2 class="form_title">Bienvenidas a la primera redSocial para mujeres deportistas</h2>
+          <input type="email" id="register-email" placeholder="Correo Electronico">
+          <input type="password" id="register-password" placeholder="Contraseña">
+        <p class="session-text">¿Ya tienes cuenta?<br></p>
+        <a href="#/login">Inicia Sesión</a>
+      </form>
+      <button type="submit" id="btn-sing-up">Registrarse</button>
+  </di>  `;
 
 export const register = new Component(template, onLoad);

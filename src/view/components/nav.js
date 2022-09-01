@@ -3,10 +3,11 @@ import {Component} from '../component.js';
     const currentPath=  window.location.hash;
     console.log(currentPath);
     const menu=(currentPath === '#/login' || currentPath==='#/register') ? '' : `
-    div ><img class="nav-menu-icon" src="img/Imagenes/nav.png">
+    <div><class="nav-menu-icon">
+    <i class="fa-solid fa-circle-caret-down"></i>
         <ul clas="nav-links">
             <li> <a href="#">Editar Perfil </a></li>
-            <li> <a href="Sign in">Cerrar Sesión </a></li>
+            <li> <a href="Signin">Cerrar Sesión </a></li>
         </ul>
     </div>`;
 

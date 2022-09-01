@@ -18,6 +18,7 @@ const handleLoginClick = () => {
 }
 
 const template = `
+<div id="backg-imag"></div>
     <div id="container-sign-in">
     <div class="mobile-logo"><img src="img/logo/logo-rosa.png"></div>
     <form>
