@@ -33,7 +33,6 @@ const template = `
     </div>
     <p>¿Aun no tienes cuenta?<br></p>
     <a href="#/register">¡Registrate aquí!</a>
-
 `;
 
 export const login = new Component(template, onLoad);

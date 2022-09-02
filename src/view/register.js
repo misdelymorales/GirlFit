@@ -26,8 +26,6 @@ const template = `
         <a href="#/login">Inicia Sesión</a>
       </form>
       <button type="submit" id="btn-sing-up">Registrarse</button>
-  </div>
-  
-`;
+  </di>  `;
 
 export const register = new Component(template, onLoad);
