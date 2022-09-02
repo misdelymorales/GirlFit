@@ -120,4 +120,3 @@ export const stateUser = () => {
 const colRef = collection(db, 'usuario');
 
 // obtener coleccion de data
-getDocs()
