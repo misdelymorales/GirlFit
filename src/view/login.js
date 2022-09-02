@@ -18,7 +18,7 @@ const handleLoginClick = () => {
 }
 
 const template = `
-<div id="login">
+<div id="backg-imag"></div>
     <div id="container-sign-in">
     <div class="mobile-logo"><img src="img/logo/logo-rosa.png"></div>
     <form>
@@ -33,7 +33,6 @@ const template = `
     </div>
     <p>¿Aun no tienes cuenta?<br></p>
     <a href="#/register">¡Registrate aquí!</a>
-</div>
 `;
 
 export const login = new Component(template, onLoad);

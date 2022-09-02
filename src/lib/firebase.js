@@ -5,6 +5,7 @@ import {
   signInWithPopup, 
   GoogleAuthProvider, 
   onAuthStateChanged,
+  signOut
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
 
  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
@@ -106,3 +107,11 @@ export const stateUser = () => {
     
   })
 };
+
+//Cerrar sesión
+signOut(auth).then(() => {
+  // redirige a inicio de sesión
+  window.location.hash = '#/login';
+}).catch((error) => {
+  // An error happened.
+});
