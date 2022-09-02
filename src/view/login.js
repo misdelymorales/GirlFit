@@ -7,6 +7,7 @@ const onLoad = () => {
     nav.render('nav');
     document.getElementById("btn-login").addEventListener("click", handleLoginClick);
     document.getElementById("login-google").addEventListener("click", signWithGoogle);
+    // document.getElementById("login-google").addEventListener("click", signWithGoogle); evento pra cerrar sesion
 }
 
 const handleLoginClick = () => {

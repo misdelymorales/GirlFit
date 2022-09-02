@@ -7,8 +7,14 @@ import {
   onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
 
- import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+import { 
+  getFirestore ,
+  collection,
+  getDocs,
+} from "https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
 
+//Iniciar servicios
  const firebaseConfig = {
      apiKey: "AIzaSyAlSrkSdzAr2miMg3q0c0_ZWOqIL1EkANs",
      authDomain: "girlfit-94742.firebaseapp.com",
@@ -23,6 +29,9 @@ import {
 
 const auth = getAuth();
 const getUserData = () => auth.currentUser;
+const db = getFirestore();
+
+//
 
 //Función de Registarse
 export function register(email, password){
@@ -106,3 +115,9 @@ export const stateUser = () => {
     
   })
 };
+
+// Ref colección
+const colRef = collection(db, 'usuario');
+
+// obtener coleccion de data
+getDocs()
