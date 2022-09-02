@@ -3,13 +3,14 @@ import {Component} from '../component.js';
     const currentPath=  window.location.hash;
     console.log(currentPath);
     const menu=(currentPath === '#/login' || currentPath==='#/register') ? '' : `
-    <div><class="nav-menu-icon">
-    <i class="fa-solid fa-circle-caret-down"></i>
-        <ul clas="nav-links">
+        <div>
+        <button class="nav-toggle"><i class="fa-solid fa-bars"></i></button>
+        <ul class="nav-menu">
             <li> <a href="#">Editar Perfil </a></li>
-            <li> <a href="Signin">Cerrar Sesión </a></li>
+            <li> <a href="#/login">Cerrar Sesión </a></li>
         </ul>
-    </div>`;
+        </div>`;
+
 
 let template = `
     <nav>
@@ -20,6 +21,7 @@ let template = `
     </nav>
 `;
 const screenWidth = window.innerWidth;
-template = ((currentPath === '#/login' || currentPath === '#/register') && screenWidth < 800 ) ? '' : template;
+template = ((currentPath === '#/login' || currentPath === '#/register') && screenWidth < 800 ) ?'' : template;
 
 export const nav= new Component(template, undefined, 'nav');
+

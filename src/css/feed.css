@@ -5,3 +5,91 @@
         justify-content: center;
         background-color: var(--background-color);
     }
+
+        /*Navbar*/
+        nav { 
+          margin:0%;   
+          background-color: var(--pink);
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          }
+          
+          nav ul {
+            display: flex;
+            justify-content: space-evenly;
+          }
+  
+          
+          nav ul li {
+            height: 30px;
+            display: flex;
+            align-items: center;
+            margin: 10px;
+          }
+          
+          nav ul li a {
+          text-decoration: none;
+          background-color:#fff;
+          color: black;
+          opacity:.42; 
+          padding: 8px 16px;
+          border-radius: 20px;
+          }
+          
+          nav a:hover {
+          background-color: gray;
+          }  
+
+          .nav-toggle {
+            color: white;
+            background: none;
+            border: none;
+            font-size: 20px;
+            padding: 0 20px;
+            line-height: 30px;
+            display: none;
+        }
+    
+      @media (max-width: 800px) {
+        .logo{
+            display: none;
+            opacity: 0;
+        }
+
+        .nav-menu {
+            flex-direction: column;
+            align-items: center;
+            width: 50%;
+            height: auto;
+            margin: auto 25%;
+            position: fixed;
+            left: 0;
+            top: 60px;
+            background-color: var(--pink);
+            border-radius: 30px;
+            left: 100%;
+        }
+        
+        nav ul li {
+            height: 30px;
+            display: flex;
+            align-items: center;
+            margin: 10px;
+          }
+
+        .nav-toggle{
+            background: none;
+            border: none;
+            display: flex;
+            color: black;
+        }
+
+        nav {
+         background-color: var(--background-color);
+        }
+
+        .nav-menu_visible{
+            left: 0;
+        }
+    }
