@@ -41,16 +41,6 @@
       background-color: gray;
       }  
 
-      /*.nav-toggle {
-        color: white;
-        background: none;
-        border: none;
-        font-size: 20px;
-        padding: 0 20px;
-        line-height: 30px;
-        display: none;
-    }*/
-
     .checkbtn {
         font-size: 20px;
         color: #fff;
@@ -91,20 +81,9 @@
         margin: 10px;
       }
 
-    /*.nav-toggle{
-        background: none;
-        border: none;
-        display: flex;
-        color: black;
-    }*/
-
     nav {
      background-color: var(--pink);
     }
-
-    /*.nav-menu_visible{
-        left: 0;
-    }*/
 
     .checkbtn{
         display: flex;
