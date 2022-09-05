@@ -15,12 +15,3 @@ const myRouter = (hash) => {
   };
   
   export { myRouter };
-
-// function hiddeLinksNav (myRouter){
-//     const menu = document.getElementById("ul-nav");
-//     if (myRouter=== '#/login' || myRouter==='#/register'){
-//         menu.style.display = 'none';
-//     }
-   
-// }
-//  hiddeLinksNav();
