@@ -4,11 +4,14 @@ import {Component} from '../component.js';
     console.log(currentPath);
     const menu=(currentPath === '#/login' || currentPath==='#/register') ? '' : `
         <div>
-        <button class="nav-toggle"><i class="fa-solid fa-bars"></i></button>
+        <input type="checkbox" id ="check">
+        <label for="check" class="checkbtn">
+          <i class="fa-solid fa-bars"></i>
+        </label>
         <ul class="nav-menu">
-            <li> <a href="#">Editar Perfil </a></li>
-            <li> <a href="#/login">Cerrar Sesión </a></li>
-        </ul>
+        <li> <a href="#">Editar Perfil </a></li>
+        <li> <a href="#/login">Cerrar Sesión </a></li>
+    </ul> 
         </div>`;
 
 
