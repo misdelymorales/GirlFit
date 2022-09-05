@@ -2,12 +2,13 @@ import {Component} from './component.js';
 import {login as loginFirebase} from '../lib/firebase.js';
 import {signWithGoogle} from '../lib/firebase.js';
 import {nav} from './components/nav.js';
+import {signWithFacebook} from '../lib/firebase.js';
 
 const onLoad = () => {
     nav.render('nav');
     document.getElementById("btn-login").addEventListener("click", handleLoginClick);
     document.getElementById("login-google").addEventListener("click", signWithGoogle);
-    // document.getElementById("login-google").addEventListener("click", signWithGoogle); evento pra cerrar sesion
+    document.getElementById("login-facebook").addEventListener("click", signWithFacebook);
 }
 
 const handleLoginClick = () => {
@@ -19,7 +20,7 @@ const handleLoginClick = () => {
 }
 
 const template = `
-<div id="login">
+<div id="backg-imag"></div>
     <div id="container-sign-in">
     <div class="mobile-logo"><img src="img/logo/logo-rosa.png"></div>
     <form>
@@ -34,7 +35,6 @@ const template = `
     </div>
     <p>¿Aun no tienes cuenta?<br></p>
     <a href="#/register">¡Registrate aquí!</a>
-</div>
 `;
 
 export const login = new Component(template, onLoad);

@@ -22,7 +22,7 @@
     margin: 8%;
   }
 
-a{
+a {
   color: var(--pink);
   font-weight: 600;
 }
@@ -35,10 +35,13 @@ a{
   display: none;
 }
 
-
 @media (min-width: 800px) {
 
-#login{
+  #backg-imag{
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -47,19 +50,20 @@ a{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  filter: blur(1px);
 }
 
 #container-sign-in {
-    width: 30%;
-    height: 70%;
-    margin: 2rem;
-    padding: 1rem;
-    background-color: var(--background-color-opacity);
-    border-radius: 20px;
-    cursor: pointer;
-    margin: auto 33%;
-    margin-top: 5%;
-    text-align: center;
+  width: 30%;
+  height: 70%;
+  margin: 2rem;
+  padding: 1rem;
+  background-color: var(--background-color-opacity);
+  border-radius: 20px;
+  cursor: pointer;
+  margin: auto 33%;
+  margin-top: 5%;
+  text-align: center;
 }
 
 .mobile-logo img {
@@ -82,6 +86,6 @@ a{
   margin: auto 33%;
   margin-top: 5%;
   text-align: center;
- }
+ } 
 
 }
