@@ -2,11 +2,13 @@ import {Component} from './component.js';
 import {login as loginFirebase} from '../lib/firebase.js';
 import {signWithGoogle} from '../lib/firebase.js';
 import {nav} from './components/nav.js';
+import {signWithFacebook} from '../lib/firebase.js';
 
 const onLoad = () => {
     nav.render('nav');
     document.getElementById("btn-login").addEventListener("click", handleLoginClick);
     document.getElementById("login-google").addEventListener("click", signWithGoogle);
+    document.getElementById("login-facebook").addEventListener("click", signWithFacebook);
 }
 
 const handleLoginClick = () => {
