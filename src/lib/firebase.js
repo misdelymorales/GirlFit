@@ -9,8 +9,15 @@ import {
   FacebookAuthProvider
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
 
- import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+import { 
+  getFirestore ,
+  collection,
+  getDocs,
+  addDoc,
+} from "https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
 
+//Iniciar servicios
  const firebaseConfig = {
      apiKey: "AIzaSyAlSrkSdzAr2miMg3q0c0_ZWOqIL1EkANs",
      authDomain: "girlfit-94742.firebaseapp.com",
@@ -25,11 +32,14 @@ import {
 
 const auth = getAuth();
 const getUserData = () => auth.currentUser;
+// const db = getFirestore();
+
+//
 
 //Función de Registarse
-export function register(email, password){
+export function register(name, email, password){
     
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, name, email, password)
     .then((userCredential) => {
         //// Signed in
         const user = userCredential.user;
@@ -143,3 +153,20 @@ signOut(auth).then(() => {
 }).catch((error) => {
   // An error happened.
 });
+
+// Ref colección
+// const colRef = collection(db, 'usuario');
+
+// // obtener coleccion de data
+//  getDocs(colRef)
+//   .then((snapshot) => {
+//     let user = []
+//     snapshot.docs.forEach((doc) =>{
+//     user.push({ ...doc.data(), id: doc.id })
+//   })
+//   console.log(user)
+// })
+// .catch(err => {
+//   console.log(err.message)
+// })   
+
