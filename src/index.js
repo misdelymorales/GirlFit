@@ -13,6 +13,7 @@ init();
 
 //Cambio de ruta de página
 window.addEventListener('hashchange', () => {
+    console.log("index", window.location.hash);
     myRouter(window.location.hash);
-    nav.render('nav');
+    nav.render('nav', window.location.hash);
 });

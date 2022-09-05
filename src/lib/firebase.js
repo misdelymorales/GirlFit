@@ -13,6 +13,7 @@ import {
   getFirestore ,
   collection,
   getDocs,
+  addDoc,
 } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
 
@@ -31,14 +32,14 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase
 
 const auth = getAuth();
 const getUserData = () => auth.currentUser;
-const db = getFirestore();
+// const db = getFirestore();
 
 //
 
 //Función de Registarse
-export function register(email, password){
+export function register(name, email, password){
     
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, name, email, password)
     .then((userCredential) => {
         //// Signed in
         const user = userCredential.user;
@@ -154,8 +155,18 @@ signOut(auth).then(() => {
 });
 
 // Ref colección
-const colRef = collection(db, 'usuario');
+// const colRef = collection(db, 'usuario');
 
-// obtener coleccion de data
-getDocs(colRef)
-  .then(() => {})
+// // obtener coleccion de data
+//  getDocs(colRef)
+//   .then((snapshot) => {
+//     let user = []
+//     snapshot.docs.forEach((doc) =>{
+//     user.push({ ...doc.data(), id: doc.id })
+//   })
+//   console.log(user)
+// })
+// .catch(err => {
+//   console.log(err.message)
+// })   
+

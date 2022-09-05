@@ -28,3 +28,4 @@ template = ((currentPath === '#/login' || currentPath === '#/register') && scree
 
 export const nav= new Component(template, undefined, 'nav');
 
+console.log(nav);
