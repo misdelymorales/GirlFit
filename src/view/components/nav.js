@@ -28,3 +28,4 @@ let template = `
 
 export const nav= new Component(template, undefined, 'nav');
 
+console.log(nav);
