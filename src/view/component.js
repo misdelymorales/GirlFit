@@ -3,6 +3,6 @@ export function Component(template, load) {
         const root = document.getElementById(id || 'root');
         this.path= props;
         root.innerHTML = template;
-        if(load) load();
+        if(load) load(window.location.hash);
     }
 }
