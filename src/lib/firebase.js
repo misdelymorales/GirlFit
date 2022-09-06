@@ -154,6 +154,9 @@ signOut(auth).then(() => {
   // An error happened.
 });
 
+//https://firebase.google.com/docs/auth/web/manage-users
+//onAuthStateChanged    Para solucionar cerrar sesión
+
 // Ref colección
 // const colRef = collection(db, 'usuario');
 
