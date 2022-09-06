@@ -7,6 +7,7 @@ const onLoad = () => {
 
 const template = `
     <div id="container-feed">
+    <h1>Feed</h1>
     <div>
 `;
 
