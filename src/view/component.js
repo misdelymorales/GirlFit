@@ -6,3 +6,6 @@ export function Component(template, load) {
         if(load) load(window.location.hash);
     }
 }
+
+
+
