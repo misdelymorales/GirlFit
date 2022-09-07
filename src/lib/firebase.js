@@ -32,10 +32,11 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase
  export const app = initializeApp(firebaseConfig);
 
 const auth = getAuth();
-const getUserData = () => auth.currentUser;
-// const db = getFirestore();
 
-//
+//const getUserData = () => auth.currentUser;
+
+//const db = getFirestore()
+
 
 //Función de Registarse
 export function register(email, password){
@@ -158,19 +159,15 @@ signOut(auth).then(() => {
 //https://firebase.google.com/docs/auth/web/manage-users
 //onAuthStateChanged    Para solucionar cerrar sesión
 
-// Ref colección
-// const colRef = collection(db, 'usuario');
+   //Ref colección
+//   const colRef = collection (db, 'usuario');
 
-// // obtener coleccion de data
-//  getDocs(colRef)
-//   .then((snapshot) => {
-//     let user = []
-//     snapshot.docs.forEach((doc) =>{
-//     user.push({ ...doc.data(), id: doc.id })
-//   })
-//   console.log(user)
-// })
-// .catch(err => {
-//   console.log(err.message)
-// })   
+//// obtener coleccion de data
+    //getDocs(colRef)
+    //})
+  //console.log(usuario)
+ //})
+ //.catch(err => {
+ // console.log(err.message)
+ //})   
 
