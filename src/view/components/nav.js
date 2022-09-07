@@ -28,7 +28,7 @@ import {Component} from '../component.js';
     }
     const currentPath=  window.location.hash;
     console.log("nav", currentPath);
-    // const menu=(currentPath === '#/login' || currentPath==='#/register') ? '' : `
+    //const menu=(currentPath === '#/login' || currentPath==='#/register') ? '' : `
     //     <div>
     //     <input type="checkbox" id ="check">
     //     <label for="check" class="checkbtn">
@@ -41,7 +41,7 @@ import {Component} from '../component.js';
     //     </div>`;
 
 
-let template = `
+   let template= `
     <nav>
         <div class="logo">
         <img class="logo" src="img/Logo/logo-header.png">
@@ -49,13 +49,7 @@ let template = `
         ${menu}
     </nav>
 `;
-
-// const screenWidth = window.innerWidth;
-// template = ((currentPath === '#/login' || currentPath === '#/register') && screenWidth < 800 ) ?'' : template;
-
-//const screenWidth = window.innerWidth;
-//template = ((currentPath === '#/login' || currentPath === '#/register') && screenWidth < 800 ) ?'' : template;
-
-export const nav= new Component(template, undefined, 'nav');
+const screenWidth = window.innerWidth;
+template = ((currentPath === '#/login' || currentPath === '#/register') && screenWidth < 800 ) ?'' : template;
 
 export const nav= new Component(template, updateNav, 'nav');
