@@ -21,7 +21,7 @@ const handleLoginClick = () => {
 
 const template = `
 <div id="backg-imag"></div>
-    <div id="container-sign-in">
+   <div id="container-sign-in">   
     <div class="mobile-logo"><img src="img/logo/logo-rosa.png"></div>
     <form>
         <h2 class="form_title">Inicia Sesión para continuar</h2>
@@ -29,6 +29,7 @@ const template = `
         <input type="password" id="login-password" placeholder="Contraseña">
     </form>
     <button id="btn-login">Iniciar Sesión</button>
+    <a href="#resetPass">Recuperar contraseña</a>
     <div class="icons-login">
         <img id="login-facebook" src="img/Logo/facebook-rosa.png">
         <img id="login-google" src="img/Logo/google-rosa.png">
