@@ -3,7 +3,7 @@
     height: 100vh;
     display: contents;
     justify-content: center;
-    background-color: var(--background-color);
+    background-color: var(--background-color-opacity);
     padding: 1rem 2rem;
     justify-content: flex-end;
 }
@@ -42,6 +42,7 @@
   font-size: 0.85rem;
   transition: all .3s ease-in;
   color: var(--pink);
+  background-color: var(--background-color);
 }
 
 textarea{
@@ -55,7 +56,15 @@ textarea{
   width: 90%;
 }
 
+.iconPost{
+  margin-left: 1rem;
+}
 
+.icon-published{
+  display: flex;
+  margin-left: 1rem;
+
+}
 
 
        
