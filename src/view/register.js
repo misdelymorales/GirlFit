@@ -8,7 +8,6 @@ const onLoad = () => {
 }
 
 const handleRegisterClick = () => {
-    //const name= document.getElementById("register-name").value;
     const email= document.getElementById("register-email").value;
     const password= document.getElementById("register-password").value;
 
