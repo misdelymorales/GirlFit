@@ -156,18 +156,23 @@ signOut(auth).then(() => {
   // An error happened.
 });
 
-//https://firebase.google.com/docs/auth/web/manage-users
-//onAuthStateChanged    Para solucionar cerrar sesión
-
-   //Ref colección
-//   const colRef = collection (db, 'usuario');
-
-//// obtener coleccion de data
-    //getDocs(colRef)
-    //})
-  //console.log(usuario)
- //})
- //.catch(err => {
- // console.log(err.message)
- //})   
-
+function newUserData(userId, nickInput, bioInput, birthInput, chosenPic, arrayGender){
+  let userData = collection(db, "UsersList");
+  const docUserData = addDoc(
+    userData, {
+      id: userId,
+      Name: nickInput,
+      email,
+    })
+    .then(() => {
+      console.log('data registrada con éxito')
+      sendEmailVerification(auth.currentUser)
+      window.location.assign("/welcome")
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      console.log(errorCode)
+      const errorMessage = error.message;
+      console.log(errorMessage)
+   })
+}
