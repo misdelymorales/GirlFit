@@ -7,16 +7,17 @@ import {
   onAuthStateChanged,
   signOut,
   FacebookAuthProvider,
-  sendEmailVerification
-} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
+  sendEmailVerification,
+  //sendPasswordResetEmail//
+} from "https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js";
 
 import { 
   getFirestore ,
   collection,
   getDocs,
   addDoc,
-} from "https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js";
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+} from "https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
 
 //Iniciar servicios
  const firebaseConfig = {
@@ -29,14 +30,46 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase
      appId: "1:20460878579:web:4e56d9c5aadeb762221586"
    };
  
- export const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 
 const auth = getAuth();
 
-//const getUserData = () => auth.currentUser;
+const db = getFirestore(app);
 
-//const db = getFirestore()
+export async function createpost (text){
+  try {
+    const docRef = await addDoc(collection(db, "posts"), {
+      name: "user",
+      description: "posts"
+    });
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+}
 
+//crear posts//
+function postData() {
+  document.getElementById('publishPost').addEventListener('click', postUser); 
+  event.preventDefault()
+  function postUser() {
+    let post = document.getElementById('inputPost').value
+    if (post.length === 0) {
+      alert('No hay nada que publicar!!')
+    } else {
+    addDoc(collection(db, 'Post'), {
+    uid: auth.currentUser.uid,
+    name: auth.currentUser.displayName,
+    picture: auth.currentUser.photoURL,
+    description: post,
+    likes:[],
+    likesCounter: 0,
+    datepost: Timestamp.fromDate(new Date()), 
+    });
+      postDash()
+      document.getElementById('inputPost').value = '';
+  }event.stopImmediatePropagation()};
+}
 
 //Función de Registarse
 export function register(email, password){
