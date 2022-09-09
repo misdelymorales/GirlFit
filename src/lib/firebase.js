@@ -189,30 +189,23 @@ signOut(auth).then(() => {
   // An error happened.
 });
 
-
-// Recuperar  Contraseña//
-//sendPasswordResetEmail(auth, email)
-  //.then(() => {
-    // Password reset email sent!
-    // ..
-  //})
-  //.catch((error) => {
-    //const errorCode = error.code;
-    //const errorMessage = error.message;
-    // ..
-  //});
-
-  
-  //crear vinculo para recuperar contraseña//
-  //const userEmail = 'user@example.com';
-//getAuth()
-  //.generatePasswordResetLink(userEmail, actionCodeSettings)
-  //.then((link) => {
-    // Construct password reset email template, embed the link and send
-    // using custom SMTP server.
-    //return sendCustomPasswordResetEmail(userEmail, displayName, link);
-  //})
-  //.catch((error) => {
-    // Some error occurred.
-  //});
-
+function newUserData(userId, nickInput, bioInput, birthInput, chosenPic, arrayGender){
+  let userData = collection(db, "UsersList");
+  const docUserData = addDoc(
+    userData, {
+      id: userId,
+      Name: nickInput,
+      email,
+    })
+    .then(() => {
+      console.log('data registrada con éxito')
+      sendEmailVerification(auth.currentUser)
+      window.location.assign("/welcome")
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      console.log(errorCode)
+      const errorMessage = error.message;
+      console.log(errorMessage)
+   })
+}
