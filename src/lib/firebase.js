@@ -36,39 +36,18 @@ const auth = getAuth();
 
 const db = getFirestore(app);
 
-export async function createpost (text){
+export async function createpost (textPost="texto por defecto"){
   try {
+    let userEmail = localStorage.getItem('correo');
     const docRef = await addDoc(collection(db, "posts"), {
-      name: "user",
-      description: "posts"
+      name: userEmail,
+      description: textPost,
+      likesCounter: 0,
     });
     console.log("Document written with ID: ", docRef.id);
   } catch (e) {
     console.error("Error adding document: ", e);
   }
-}
-
-//crear posts//
-function postData() {
-  document.getElementById('publishPost').addEventListener('click', postUser); 
-  event.preventDefault()
-  function postUser() {
-    let post = document.getElementById('inputPost').value
-    if (post.length === 0) {
-      alert('No hay nada que publicar!!')
-    } else {
-    addDoc(collection(db, 'Post'), {
-    uid: auth.currentUser.uid,
-    name: auth.currentUser.displayName,
-    picture: auth.currentUser.photoURL,
-    description: post,
-    likes:[],
-    likesCounter: 0,
-    datepost: Timestamp.fromDate(new Date()), 
-    });
-      postDash()
-      document.getElementById('inputPost').value = '';
-  }event.stopImmediatePropagation()};
 }
 
 //Función de Registarse
@@ -171,10 +150,12 @@ export const signWithGoogle = () => {
 export const stateUser = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      const currentUser = auth.currentUser;
+      console.log('estoy logueada', user);
+      localStorage.setItem('correo',user.email);
       window.location.hash = '#/feed';
-      return currentUser;
+      return;
     }
+    localStorage.removeItem('correo');
     window.location.hash = '#/login';
     return ('not logged');
     

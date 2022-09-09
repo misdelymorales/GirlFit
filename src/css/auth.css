@@ -35,6 +35,21 @@ a {
   display: none;
 }
 
+ /*Botones*/
+ .button-auth {
+  padding: 10px;
+  font-weight: 400;
+  background-color:var(--pink);
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: .9rem;
+  margin-top: 1rem;
+  transition: all .3s ease-in;
+  color: white;
+}
+
+
 @media (min-width: 800px) {
 
   #backg-imag{

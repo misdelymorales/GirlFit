@@ -30,20 +30,7 @@
       text-align: center;
     }
   
-    /*Botones*/
-    button {
-      padding: 10px;
-      font-weight: 400;
-      background-color:var(--pink);
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      font-size: .9rem;
-      margin-top: 1rem;
-      transition: all .3s ease-in;
-      color: white;
-    }
-
+   
     /*Footer*/
     footer{
       background-color: rgba(0, 0, 0, 0.78);
@@ -58,11 +45,6 @@
 
     /*Formulario*/
     input {
-      height: 5vh;
-      width: 90%;
-      display: block;
-      margin: auto;
-      margin-bottom: 1rem;
       text-align: center;
       padding: .2rem 0;
       font-size: .9rem;
@@ -71,8 +53,16 @@
       border: 1px solid lightgrey;
       border-radius: 8px;
     }
+
+    .inputForm {
+      height: 5vh;
+      width: 90%;
+      display: block;
+      margin: auto;
+      margin-bottom: 1rem;
+    }
     
-    input:focus{
+    .inputForm:focus{
       outline: var(--pink);
       border: 6px var(--pink);
       color: var(--pink);

@@ -25,10 +25,10 @@ const template = `
     <div class="mobile-logo"><img src="img/logo/logo-rosa.png"></div>
     <form>
         <h2 class="form_title">Inicia Sesión para continuar</h2>
-        <input type="email" id="login-email" placeholder="Correo Electronico">
-        <input type="password" id="login-password" placeholder="Contraseña">
+        <input class="inputForm" type="email" id="login-email" placeholder="Correo Electronico">
+        <input class="inputForm" type="password" id="login-password" placeholder="Contraseña">
     </form>
-    <button id="btn-login">Iniciar Sesión</button>
+    <button class="button-auth" id="btn-login">Iniciar Sesión</button>
     <a href="#resetPass">Recuperar contraseña</a>
     <div class="icons-login">
         <img id="login-facebook" src="img/Logo/facebook-rosa.png">
