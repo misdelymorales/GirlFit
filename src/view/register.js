@@ -21,12 +21,12 @@ const template = `
       <div class="mobile-logo "><img src="img/logo/logo-rosa.png"></div>
       <form id="signup-form">
         <h2 class="form_title">Bienvenidas a la primera redSocial para mujeres deportistas</h2>
-        <input type="email" id="register-email" placeholder="Correo Electronico">
-        <input type="password" id="register-password" placeholder="Contraseña">
+        <input class="inputForm" type="email" id="register-email" placeholder="Correo Electronico">
+        <input class="inputForm" type="password" id="register-password" placeholder="Contraseña">
         <p class="session-text">¿Ya tienes cuenta?<br></p>
         <a href="#/login">Inicia Sesión</a>
       </form>
-      <button type="submit" id="btn-sing-up">Registrarse</button>
+      <button class="button-auth" type="submit" id="btn-sing-up">Registrarse</button>
   </di>  `;
 
 export const register = new Component(template, onLoad);

@@ -8,13 +8,16 @@ const onLoad = () => {
 }
 
 const template = `
-    <div id="container-feed">
-    <input id="inputPost" type="textarea" placeholder="Cuentanos que entrenamiento vas hacer hoy...">
-    <div id="barraRosada">
-     <div id="iconos">
-         <img src="./img/iconos/pic.png" alt="fotos">
-    </div>
-    <div id="postBtn">   <button id="publishPost">Publicar</button>           
+<div id="container-feed">
+    <div id="post">
+        <div id="tittlePost"><img class="userdisplay" src="./img/iconos/userdisplay.png" alt="fotos"> Anónima</div>
+        <textarea id="inputPost"  rows="4" placeholder="Cuentanos que entrenamiento vas hacer hoy..."></textarea>
+        <div id="barra-rosada">
+            <div id="iconos">
+                <img src="./img/iconos/pic.png" alt="fotos">
+            </div>
+            <div id="btnPost"> <button  id="publishPost">Publicar</button> </div>
+        </div>
     </div>
 </div>
 `;
