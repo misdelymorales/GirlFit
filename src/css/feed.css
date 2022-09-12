@@ -60,12 +60,21 @@ textarea{
   margin-left: 1rem;
 }
 
-.icon-published{
-  display: flex;
-  margin-left: 1rem;
-
+#coment {
+  margin-left: 70%; 
 }
 
+#conter {
+  margin-right: 20%;
+}
+
+#like {
+  margin-right: 20%;
+}
+
+#dislike {
+  margin-right: 20%;
+}
 
        
 

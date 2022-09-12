@@ -16,13 +16,13 @@
       font-family: var(--body-font);
     }
 
-    body{
+    body {
       display: grid;
       min-height: 100vh;
       grid-template-rows: auto 1fr auto;
     }
 
-    #root{
+    #root {
       display: flex;
       flex-direction: column;
       justify-content: center;

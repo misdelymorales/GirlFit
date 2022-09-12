@@ -8,6 +8,8 @@ import {
   signOut,
   FacebookAuthProvider,
   sendEmailVerification,
+  showPosts,
+  likePost,
   //sendPasswordResetEmail//
 } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js";
 
@@ -49,6 +51,37 @@ export async function createpost (textPost="texto por defecto"){
     console.error("Error adding document: ", e);
   }
 }
+
+//mostrar los posts//
+export const showPosts = async () => {
+  const posts = query(collection(db, 'posts'));
+  const querySnapShot = await getDocs(posts);
+  const allPosts = [];
+  querySnapShot.forEach((doc) => {
+    allPosts.push(doc.data());
+  });
+  return allPosts;
+};
+
+//dar like
+ export const likePosts = async (id, userId) => {
+  const postRef = doc(db, 'posts', id);
+  const docLike = await getDoc(postRef);
+  const dataLike = docLike.data();
+  console.log(dataLike);
+  const likesCount = dataLike.numberLike;
+  if (dataLike.like.includes(userId)) {
+    await updateDoc(postRef, {
+      like: arrayRemove(userId),
+      numberLike: likesCount - 1,
+    });
+  } else {
+    await updateDoc(postRef, {
+      like: arrayUnion(userId),
+      numberLike: likesCount + 1,
+    });
+  }
+};
 
 //Función de Registarse
 export function register(email, password){
@@ -139,6 +172,7 @@ export const signWithGoogle = () => {
   });
   }
 
+    //funcion para verificar el correo//
     function emailVerification(auth) {
       sendEmailVerification(auth.currentUser)
         .then(() => {
@@ -170,23 +204,18 @@ signOut(auth).then(() => {
   // An error happened.
 });
 
-function newUserData(userId, nickInput, bioInput, birthInput, chosenPic, arrayGender){
-  let userData = collection(db, "UsersList");
-  const docUserData = addDoc(
-    userData, {
-      id: userId,
-      Name: nickInput,
-      email,
-    })
-    .then(() => {
-      console.log('data registrada con éxito')
-      sendEmailVerification(auth.currentUser)
-      window.location.assign("/welcome")
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      console.log(errorCode)
-      const errorMessage = error.message;
-      console.log(errorMessage)
-   })
-}
+//recuperar contraseña//
+//export const resetPass = (email ) => {
+  //sendPasswordResetEmail(auth, email)
+    //.then((userCredential) => {
+      //callback(true);
+      //return userCredential;
+      // console.log('entraste jeje');
+    //})
+    //.catch((error) => {
+      //callback(false);
+      // const errorCode = error.code;
+      //const errorMessage = error.message;
+      //return errorMessage;
+    //});
+//};
