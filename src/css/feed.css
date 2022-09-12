@@ -20,9 +20,15 @@
   margin-top: 5%;
  }
 
- #tittlePost{
-  position: inherit;
-  width: fit-content;
+ .titte-Post{
+  display: flex;
+  align-items: center;
+ }
+
+ .tittle-post-published{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
  }
 
  .userdisplay {
@@ -33,6 +39,8 @@
   background: var(--pink);
   display: flex;
   justify-content: space-between;
+  height: 2rem;
+  align-items: center;
 }    
 
 #btnPost{
@@ -43,10 +51,14 @@
   transition: all .3s ease-in;
   color: var(--pink);
   background-color: var(--background-color);
+  margin-right: 1rem;
+  width: 4rem;
 }
 
 textarea{
   border: none;
+  margin-block: 1rem;
+  width: inherit;
 }
 
 #postPublished{
@@ -56,10 +68,11 @@ textarea{
   width: 90%;
 }
 
-.iconPost{
-  margin-left: 1rem;
+.icon-pic{
+  margin-left: 1rem;;
 }
 
+<<<<<<< HEAD
 #coment {
   margin-left: 70%; 
 }
@@ -76,5 +89,21 @@ textarea{
   margin-right: 20%;
 }
 
-       
+=======
+.icon-like{
+  display: flex;
+  margin: 0 0.5rem;
+}
 
+.binPost{
+  height: 1.3rem;
+}
+>>>>>>> eb0426003c187aa3568adce50a473f86a66a7e02
+       
+.like{
+  display: flex;
+}
+
+#counterLike{
+  margin-left: 1rem;
+}

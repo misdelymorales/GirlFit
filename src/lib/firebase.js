@@ -8,8 +8,6 @@ import {
   signOut,
   FacebookAuthProvider,
   sendEmailVerification,
-  showPosts,
-  likePost,
   //sendPasswordResetEmail//
 } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js";
 
@@ -18,6 +16,7 @@ import {
   collection,
   getDocs,
   addDoc,
+  query,
 } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
 
@@ -52,8 +51,8 @@ export async function createpost (textPost="texto por defecto"){
   }
 }
 
-//mostrar los posts//
-export const showPosts = async () => {
+//mostrar los posts
+ export const showPosts = async () => {
   const posts = query(collection(db, 'posts'));
   const querySnapShot = await getDocs(posts);
   const allPosts = [];
@@ -63,19 +62,21 @@ export const showPosts = async () => {
   return allPosts;
 };
 
-//dar like
- export const likePosts = async (id, userId) => {
+//eliminar post
+function deletePost() {
+  document.querySelector('#trash').addEventListener('click', async () => {
+    await deleteDoc(doc(db, "Posts", doc.id))
+  })
+}
+
+//like
+export const likePost = async (id, userId) => {
   const postRef = doc(db, 'posts', id);
   const docLike = await getDoc(postRef);
   const dataLike = docLike.data();
   console.log(dataLike);
   const likesCount = dataLike.numberLike;
   if (dataLike.like.includes(userId)) {
-    await updateDoc(postRef, {
-      like: arrayRemove(userId),
-      numberLike: likesCount - 1,
-    });
-  } else {
     await updateDoc(postRef, {
       like: arrayUnion(userId),
       numberLike: likesCount + 1,
@@ -172,7 +173,6 @@ export const signWithGoogle = () => {
   });
   }
 
-    //funcion para verificar el correo//
     function emailVerification(auth) {
       sendEmailVerification(auth.currentUser)
         .then(() => {
@@ -186,6 +186,7 @@ export const stateUser = () => {
     if (user) {
       console.log('estoy logueada', user);
       localStorage.setItem('correo',user.email);
+      localStorage.setItem('uid',user.uid);
       window.location.hash = '#/feed';
       return;
     }
@@ -203,19 +204,3 @@ signOut(auth).then(() => {
 }).catch((error) => {
   // An error happened.
 });
-
-//recuperar contraseña//
-//export const resetPass = (email ) => {
-  //sendPasswordResetEmail(auth, email)
-    //.then((userCredential) => {
-      //callback(true);
-      //return userCredential;
-      // console.log('entraste jeje');
-    //})
-    //.catch((error) => {
-      //callback(false);
-      // const errorCode = error.code;
-      //const errorMessage = error.message;
-      //return errorMessage;
-    //});
-//};
