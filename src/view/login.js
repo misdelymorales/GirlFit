@@ -23,13 +23,12 @@ const template = `
 <div id="backg-imag"></div>
    <div id="container-sign-in">   
     <div class="mobile-logo"><img src="img/logo/logo-rosa.png"></div>
-    <form>
-        <h2 class="form_title">Inicia Sesión para continuar</h2>
-        <input class="inputForm" type="email" id="login-email" placeholder="Correo Electronico">
-        <input class="inputForm" type="password" id="login-password" placeholder="Contraseña">
-    </form>
-    <button class="button-auth" id="btn-login">Iniciar Sesión</button>
-    <a href="#resetPass">Recuperar contraseña</a>
+        <form>
+            <h2 class="form_title">Inicia Sesión para continuar</h2>
+            <input class="inputForm" type="email" id="login-email" placeholder="Correo Electronico">
+            <input class="inputForm" type="password" id="login-password" placeholder="Contraseña">
+        </form>
+        <button class="button-auth" id="btn-login">Iniciar Sesión</button>
     <div class="icons-login">
         <img id="login-facebook" src="img/Logo/facebook-rosa.png">
         <img id="login-google" src="img/Logo/google-rosa.png">
