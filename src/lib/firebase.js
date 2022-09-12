@@ -16,6 +16,7 @@ import {
   collection,
   getDocs,
   addDoc,
+  query,
 } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
 
@@ -49,6 +50,39 @@ export async function createpost (textPost="texto por defecto"){
     console.error("Error adding document: ", e);
   }
 }
+
+//mostrar los posts
+ export const showPosts = async () => {
+  const posts = query(collection(db, 'posts'));
+  const querySnapShot = await getDocs(posts);
+  const allPosts = [];
+  querySnapShot.forEach((doc) => {
+    allPosts.push(doc.data());
+  });
+  return allPosts;
+};
+
+//eliminar post
+function deletePost() {
+  document.querySelector('#trash').addEventListener('click', async () => {
+    await deleteDoc(doc(db, "Posts", doc.id))
+  })
+}
+
+//like
+export const likePost = async (id, userId) => {
+  const postRef = doc(db, 'posts', id);
+  const docLike = await getDoc(postRef);
+  const dataLike = docLike.data();
+  console.log(dataLike);
+  const likesCount = dataLike.numberLike;
+  if (dataLike.like.includes(userId)) {
+    await updateDoc(postRef, {
+      like: arrayUnion(userId),
+      numberLike: likesCount + 1,
+    });
+  }
+};
 
 //Función de Registarse
 export function register(email, password){
@@ -152,6 +186,7 @@ export const stateUser = () => {
     if (user) {
       console.log('estoy logueada', user);
       localStorage.setItem('correo',user.email);
+      localStorage.setItem('uid',user.uid);
       window.location.hash = '#/feed';
       return;
     }
@@ -170,23 +205,3 @@ signOut(auth).then(() => {
   // An error happened.
 });
 
-function newUserData(userId, nickInput, bioInput, birthInput, chosenPic, arrayGender){
-  let userData = collection(db, "UsersList");
-  const docUserData = addDoc(
-    userData, {
-      id: userId,
-      Name: nickInput,
-      email,
-    })
-    .then(() => {
-      console.log('data registrada con éxito')
-      sendEmailVerification(auth.currentUser)
-      window.location.assign("/welcome")
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      console.log(errorCode)
-      const errorMessage = error.message;
-      console.log(errorMessage)
-   })
-}
