@@ -170,23 +170,4 @@ signOut(auth).then(() => {
   // An error happened.
 });
 
-function newUserData(userId, nickInput, bioInput, birthInput, chosenPic, arrayGender){
-  let userData = collection(db, "UsersList");
-  const docUserData = addDoc(
-    userData, {
-      id: userId,
-      Name: nickInput,
-      email,
-    })
-    .then(() => {
-      console.log('data registrada con éxito')
-      sendEmailVerification(auth.currentUser)
-      window.location.assign("/welcome")
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      console.log(errorCode)
-      const errorMessage = error.message;
-      console.log(errorMessage)
-   })
-}
+
