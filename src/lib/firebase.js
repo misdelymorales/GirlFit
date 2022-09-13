@@ -85,6 +85,7 @@ export const likePost = async (id) => {
       likeUsers: [...post.likeUsers, userId],
       likesCounter: post.likesCounter + 1,
     });
+    
   }
 };
 
