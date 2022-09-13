@@ -21,7 +21,7 @@ import {
   query,
   doc,
   deleteDoc,
-  //onSnapshot,
+  // getStorage,
 } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
 

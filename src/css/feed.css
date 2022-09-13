@@ -57,10 +57,18 @@ width: 4rem;
 #inputPost{
 border: none;
 }
+#inputPost{
+  border: none;
+}
 
 textarea{
+<<<<<<< HEAD
 margin-block: 1rem;
 width: inherit;
+=======
+  margin-block: 1rem;
+  width: inherit;
+>>>>>>> 2718fe7fbc2186df1686b41b03484eeed83dfc28
 }
 
 #postPublished{
@@ -75,6 +83,7 @@ margin-left: 1rem;;
 }
 
 .icon-like{
+<<<<<<< HEAD
 background-image: url("../img/iconos/like.png");
 width: 1.7rem;
 background-position: center;
@@ -103,6 +112,36 @@ border: none;
 cursor: pointer;
 background-color: unset;
 background-repeat: no-repeat;
+=======
+  background-image: url("../img/iconos/like.png");
+  width: 1.7rem;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  background-color: unset;
+  background-repeat: no-repeat;
+}
+
+.icon-dislike {
+  background-image: url("../img/iconos/dislike.png");
+  width: 1.7rem;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  background-color: unset;
+  background-repeat: no-repeat;
+}
+
+.binPost{
+  background-image: url("../img/iconos/bin.png");
+  height: 2rem;
+  width: 3rem;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  background-color: unset;
+  background-repeat: no-repeat;
+>>>>>>> 2718fe7fbc2186df1686b41b03484eeed83dfc28
 }
      
 .like{
