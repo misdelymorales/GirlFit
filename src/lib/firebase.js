@@ -9,16 +9,20 @@ import {
   FacebookAuthProvider,
   sendEmailVerification,
   //sendPasswordResetEmail//
-} from "https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js";
 
 import { 
   getFirestore ,
   collection,
+  updateDoc,
   getDocs,
+  getDoc,
   addDoc,
   query,
-} from "https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js";
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
+  doc,
+  // getStorage,
+} from "https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
 
 //Iniciar servicios
  const firebaseConfig = {
@@ -32,10 +36,9 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase
    };
  
 export const app = initializeApp(firebaseConfig);
-
 const auth = getAuth();
-
 const db = getFirestore(app);
+// const storage = getStorage(app);
 
 export async function createpost (textPost="texto por defecto"){
   try {
@@ -44,6 +47,7 @@ export async function createpost (textPost="texto por defecto"){
       name: userEmail,
       description: textPost,
       likesCounter: 0,
+      likeUsers: [] //ids de usuarios que dieron like
     });
     console.log("Document written with ID: ", docRef.id);
   } catch (e) {
@@ -57,7 +61,7 @@ export async function createpost (textPost="texto por defecto"){
   const querySnapShot = await getDocs(posts);
   const allPosts = [];
   querySnapShot.forEach((doc) => {
-    allPosts.push(doc.data());
+    allPosts.push({...doc.data(), id: doc.id});
   });
   return allPosts;
 };
@@ -70,16 +74,16 @@ function deletePost() {
 }
 
 //like
-export const likePost = async (id, userId) => {
+
+export const likePost = async (id) => {
+  const userId=localStorage.getItem('uid');
   const postRef = doc(db, 'posts', id);
   const docLike = await getDoc(postRef);
-  const dataLike = docLike.data();
-  console.log(dataLike);
-  const likesCount = dataLike.numberLike;
-  if (dataLike.like.includes(userId)) {
+  const post = docLike.data();
+  if (!post.likeUsers.includes(userId)) {
     await updateDoc(postRef, {
-      like: arrayUnion(userId),
-      numberLike: likesCount + 1,
+      likeUsers: [...post.likeUsers, userId],
+      likesCounter: post.likesCounter + 1,
     });
   }
 };

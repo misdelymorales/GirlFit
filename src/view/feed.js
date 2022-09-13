@@ -1,17 +1,15 @@
 import {Component} from './component.js';
 import {nav} from './components/nav.js';
+import {post} from './components/post.js';
 import {createpost} from '../lib/firebase.js';
 import {showPosts} from '../lib/firebase.js';
-import {likePost} from '../lib/firebase.js';
 
 const onLoad = () => {
     nav.render('nav');
     showPosts().then((posts)=>{
-        console.log({posts})
         let htmlPost="";
         posts.forEach((post)=>{
             htmlPost+=`
-            
                 <div id="tittlePostPublished" class="tittle-post-published">
                     <div class="user">
                         <img class="userdisplay" src="./img/iconos/userdisplay.png" alt="fotos"> 
@@ -23,11 +21,10 @@ const onLoad = () => {
                 <textarea id="inputPost"  rows="4" placeholder="Cuentanos que entrenamiento vas hacer hoy...">${post.description}</textarea>
                 <div class="barra-rosada">
                     <div class="like">
-                        <div id="counterLike">5</div>
-                            <div class="icon-like">
-                                <img src="./img/iconos/like.png" alt="fotos" style="margin-right: 0.5rem;">
-                                <img src="./img/iconos/dislike.png" alt="fotos">
-                            </div>
+                        <div id="counterLike">${post.likesCounter}</div>
+                            <button data-post="${post.id}" class="icon-like like-post">
+                                like
+                            </button>
                         </div>
                     <div class="icon-coment"><img src="./img/iconos/coment.png" alt="fotos"></div>
                     
@@ -35,21 +32,17 @@ const onLoad = () => {
                 </div>
             `
         });
-        document.getElementById("postPublished").innerHTML=htmlPost;
+        post(htmlPost).render("postPublished");
     });
     
     document.getElementById("btnPost").addEventListener("click", publishPost);
-    doc
+    
 }
 
 const publishPost = () => {
     const textPost= document.getElementById("textareaPost").value;
     createpost(textPost);
 }
-
-// const showAllPosts = () => {
-//    const collection
-// }
 
 
 const template = `
