@@ -4,7 +4,6 @@ import {post} from './components/post.js';
 import {createpost} from '../lib/firebase.js';
 import {showPosts} from '../lib/firebase.js';
 
-
 const onLoad = () => {
     nav.render('nav');
     showPosts().then((posts)=>{

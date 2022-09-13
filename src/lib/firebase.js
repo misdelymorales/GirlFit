@@ -1,16 +1,17 @@
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  GoogleAuthProvider,
+import { 
+  getAuth, 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword, 
+  signInWithPopup, 
+  GoogleAuthProvider, 
   onAuthStateChanged,
   signOut,
   FacebookAuthProvider,
   sendEmailVerification,
   //sendPasswordResetEmail//
 } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js";
-import {
+
+import { 
   getFirestore ,
   collection,
   updateDoc,
@@ -23,6 +24,7 @@ import {
   // getStorage,
 } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
+
 //Iniciar servicios
  const firebaseConfig = {
      apiKey: "AIzaSyAlSrkSdzAr2miMg3q0c0_ZWOqIL1EkANs",
@@ -33,10 +35,12 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase
      messagingSenderId: "20460878579",
      appId: "1:20460878579:web:4e56d9c5aadeb762221586"
    };
+ 
 export const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore(app);
 // const storage = getStorage(app);
+
 //Crear post
 export async function createpost (textPost="texto por defecto"){
   try {
@@ -52,6 +56,7 @@ export async function createpost (textPost="texto por defecto"){
     console.error("Error adding document: ", e);
   }
 }
+
 //mostrar los posts
  export const showPosts = async () => {
   const posts = query(collection(db, 'posts'));
@@ -62,10 +67,13 @@ export async function createpost (textPost="texto por defecto"){
   });
   return allPosts;
 };
+
 //eliminar post
 export const deletePost = (id) =>{
   deleteDoc(doc(db, 'posts', id));
 };
+
+
 //like
 export const likePost = async (id) => {
   const userId=localStorage.getItem('uid');
@@ -77,7 +85,7 @@ export const likePost = async (id) => {
       likeUsers: [...post.likeUsers, userId],
       likesCounter: post.likesCounter + 1,
     });
-  }
+  } 
   else {
     await updateDoc(postRef, {
       likeUsers: [...post.likeUsers, userId],
@@ -85,13 +93,16 @@ export const likePost = async (id) => {
     });
   }
 };
+
 //Función de Registarse
 export function register(email, password){
+    
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         //// Signed in
         const user = userCredential.user;
       emailVerification(auth);
+
         alert("usuario creado correctamente");
       })
       .catch((error) => {
@@ -100,6 +111,7 @@ export function register(email, password){
         //console.error("error al crear usuario");
       });
 }
+
 ////Función de Iniciar sesión
 export function login(email, password){
     signInWithEmailAndPassword(auth, email, password)
@@ -115,6 +127,7 @@ export function login(email, password){
     console.error("usuario no encontrado");
   });
 }
+
 ////Función para iniciar sesión con Google
 export const signWithGoogle = () => {
   const provider = new GoogleAuthProvider();
@@ -125,6 +138,7 @@ export const signWithGoogle = () => {
       //// const token = credential.accessToken;
       //// The signed-in user info.
       //// const user = result.user;
+
       return credential;
     })
     .catch((error) => {
@@ -138,7 +152,9 @@ export const signWithGoogle = () => {
       //// ...
       return errorCode;
     });
+   
   };
+
   //función para autenticar con facebook//
   export const signWithFacebook = () => {
     const provider = new FacebookAuthProvider();
@@ -146,9 +162,11 @@ export const signWithGoogle = () => {
     .then((result) => {
     // The signed-in user info.
     //const user = result.user;
+
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
     const credential = FacebookAuthProvider.credentialFromResult(result);
     //const accessToken = credential.accessToken;
+
     // ...
   })
   .catch((error) => {
@@ -159,15 +177,18 @@ export const signWithGoogle = () => {
     //const email = error.customData.email;
     // The AuthCredential type that was used.
     const credential = FacebookAuthProvider.credentialFromError(error);
+
     // ...
   });
   }
+
     function emailVerification(auth) {
       sendEmailVerification(auth.currentUser)
         .then(() => {
           alert('Te hemos enviado una confirmación a tu correo por favor válida antes de comenzar.');
         });
     }
+
 //Estado de autenticación y datos del usuario
 export const stateUser = () => {
   onAuthStateChanged(auth, (user) => {
@@ -180,6 +201,7 @@ export const stateUser = () => {
     localStorage.removeItem('correo');
     window.location.hash = '#/login';
     return ('not logged');
+    
   })
 };
 
