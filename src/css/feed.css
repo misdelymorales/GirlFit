@@ -54,9 +54,11 @@
   margin-right: 1rem;
   width: 4rem;
 }
+#inputPost{
+  border: none;
+}
 
 textarea{
-  border: none;
   margin-block: 1rem;
   width: inherit;
 }
@@ -91,12 +93,34 @@ textarea{
 
 =======
 .icon-like{
-  display: flex;
-  margin: 0 0.5rem;
+  background-image: url("../img/iconos/like.png");
+  width: 1.7rem;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  background-color: unset;
+  background-repeat: no-repeat;
+}
+
+.icon-dislike {
+  background-image: url("../img/iconos/dislike.png");
+  width: 1.7rem;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  background-color: unset;
+  background-repeat: no-repeat;
 }
 
 .binPost{
-  height: 1.3rem;
+  background-image: url("../img/iconos/bin.png");
+  height: 2rem;
+  width: 3rem;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  background-color: unset;
+  background-repeat: no-repeat;
 }
 >>>>>>> eb0426003c187aa3568adce50a473f86a66a7e02
        
