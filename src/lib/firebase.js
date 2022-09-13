@@ -9,7 +9,7 @@ import {
   FacebookAuthProvider,
   sendEmailVerification,
   //sendPasswordResetEmail//
-} from "https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js";
 
 import { 
   getFirestore ,
@@ -20,9 +20,10 @@ import {
   addDoc,
   query,
   doc,
+  deleteDoc,
   // getStorage,
-} from "https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js";
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
+} from "https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
 
 //Iniciar servicios
  const firebaseConfig = {
@@ -67,11 +68,10 @@ export async function createpost (textPost="texto por defecto"){
 };
 
 //eliminar post
-function deletePost() {
-  document.querySelector('#trash').addEventListener('click', async () => {
-    await deleteDoc(doc(db, "Posts", doc.id))
-  })
-}
+export const deletePost = (id) =>{
+  deleteDoc(doc(db, 'posts', id));
+};
+
 
 //like
 
@@ -84,6 +84,12 @@ export const likePost = async (id) => {
     await updateDoc(postRef, {
       likeUsers: [...post.likeUsers, userId],
       likesCounter: post.likesCounter + 1,
+    });
+  } 
+  else {
+    await updateDoc(postRef, {
+      likeUsers: [...post.likeUsers, userId],
+      likesCounter: post.likesCounter - 1,
     });
   }
 };
