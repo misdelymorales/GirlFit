@@ -41,6 +41,7 @@ const auth = getAuth();
 const db = getFirestore(app);
 // const storage = getStorage(app);
 
+//Crear post
 export async function createpost (textPost="texto por defecto"){
   try {
     let userEmail = localStorage.getItem('correo');
@@ -74,7 +75,6 @@ export const deletePost = (id) =>{
 
 
 //like
-
 export const likePost = async (id) => {
   const userId=localStorage.getItem('uid');
   const postRef = doc(db, 'posts', id);
@@ -138,8 +138,7 @@ export const signWithGoogle = () => {
       //// const token = credential.accessToken;
       //// The signed-in user info.
       //// const user = result.user;
-      //// ...
-      //// console.log('resultó google jeje');
+
       return credential;
     })
     .catch((error) => {
@@ -194,7 +193,6 @@ export const signWithGoogle = () => {
 export const stateUser = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      console.log('estoy logueada', user);
       localStorage.setItem('correo',user.email);
       localStorage.setItem('uid',user.uid);
       window.location.hash = '#/feed';
