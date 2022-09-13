@@ -14,8 +14,14 @@ import {
 import { 
   getFirestore ,
   collection,
+  updateDoc,
   getDocs,
+  getDoc,
   addDoc,
+  query,
+  doc,
+  deleteDoc,
+  // getStorage,
 } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
 
@@ -31,11 +37,11 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase
    };
  
 export const app = initializeApp(firebaseConfig);
-
 const auth = getAuth();
-
 const db = getFirestore(app);
+// const storage = getStorage(app);
 
+//Crear post
 export async function createpost (textPost="texto por defecto"){
   try {
     let userEmail = localStorage.getItem('correo');
@@ -43,12 +49,50 @@ export async function createpost (textPost="texto por defecto"){
       name: userEmail,
       description: textPost,
       likesCounter: 0,
+      likeUsers: [] //ids de usuarios que dieron like
     });
     console.log("Document written with ID: ", docRef.id);
   } catch (e) {
     console.error("Error adding document: ", e);
   }
 }
+
+//mostrar los posts
+ export const showPosts = async () => {
+  const posts = query(collection(db, 'posts'));
+  const querySnapShot = await getDocs(posts);
+  const allPosts = [];
+  querySnapShot.forEach((doc) => {
+    allPosts.push({...doc.data(), id: doc.id});
+  });
+  return allPosts;
+};
+
+//eliminar post
+export const deletePost = (id) =>{
+  deleteDoc(doc(db, 'posts', id));
+};
+
+
+//like
+export const likePost = async (id) => {
+  const userId=localStorage.getItem('uid');
+  const postRef = doc(db, 'posts', id);
+  const docLike = await getDoc(postRef);
+  const post = docLike.data();
+  if (!post.likeUsers.includes(userId)) {
+    await updateDoc(postRef, {
+      likeUsers: [...post.likeUsers, userId],
+      likesCounter: post.likesCounter + 1,
+    });
+  } 
+  else {
+    await updateDoc(postRef, {
+      likeUsers: [...post.likeUsers, userId],
+      likesCounter: post.likesCounter - 1,
+    });
+  }
+};
 
 //Función de Registarse
 export function register(email, password){
@@ -94,8 +138,7 @@ export const signWithGoogle = () => {
       //// const token = credential.accessToken;
       //// The signed-in user info.
       //// const user = result.user;
-      //// ...
-      //// console.log('resultó google jeje');
+
       return credential;
     })
     .catch((error) => {
@@ -150,8 +193,8 @@ export const signWithGoogle = () => {
 export const stateUser = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      console.log('estoy logueada', user);
       localStorage.setItem('correo',user.email);
+      localStorage.setItem('uid',user.uid);
       window.location.hash = '#/feed';
       return;
     }
@@ -169,5 +212,4 @@ signOut(auth).then(() => {
 }).catch((error) => {
   // An error happened.
 });
-
 

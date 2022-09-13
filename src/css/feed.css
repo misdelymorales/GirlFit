@@ -20,9 +20,15 @@
   margin-top: 5%;
  }
 
- #tittlePost{
-  position: inherit;
-  width: fit-content;
+ .titte-Post{
+  display: flex;
+  align-items: center;
+ }
+
+ .tittle-post-published{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
  }
 
  .userdisplay {
@@ -33,6 +39,8 @@
   background: var(--pink);
   display: flex;
   justify-content: space-between;
+  height: 2rem;
+  align-items: center;
 }    
 
 #btnPost{
@@ -43,10 +51,16 @@
   transition: all .3s ease-in;
   color: var(--pink);
   background-color: var(--background-color);
+  margin-right: 1rem;
+  width: 4rem;
+}
+#inputPost{
+  border: none;
 }
 
 textarea{
-  border: none;
+  margin-block: 1rem;
+  width: inherit;
 }
 
 #postPublished{
@@ -56,16 +70,45 @@ textarea{
   width: 90%;
 }
 
-.iconPost{
-  margin-left: 1rem;
+.icon-pic{
+  margin-left: 1rem;;
 }
 
-.icon-published{
-  display: flex;
-  margin-left: 1rem;
-
+.icon-like{
+  background-image: url("../img/iconos/like.png");
+  width: 1.7rem;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  background-color: unset;
+  background-repeat: no-repeat;
 }
 
+.icon-dislike {
+  background-image: url("../img/iconos/dislike.png");
+  width: 1.7rem;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  background-color: unset;
+  background-repeat: no-repeat;
+}
 
+.binPost{
+  background-image: url("../img/iconos/bin.png");
+  height: 2rem;
+  width: 3rem;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  background-color: unset;
+  background-repeat: no-repeat;
+}
        
+.like{
+  display: flex;
+}
 
+#counterLike{
+  margin-left: 1rem;
+}
