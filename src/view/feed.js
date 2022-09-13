@@ -15,16 +15,15 @@ const onLoad = () => {
                         <img class="userdisplay" src="./img/iconos/userdisplay.png" alt="fotos"> 
                         Anónima
                     </div>
-                    <img class="binPost" src="./img/iconos/bin.png" alt="fotos">
+                    <button class="binPost delete-post" data-post="${post.id}"></button>
                 </div>
             
                 <textarea id="inputPost"  rows="4" placeholder="Cuentanos que entrenamiento vas hacer hoy...">${post.description}</textarea>
                 <div class="barra-rosada">
                     <div class="like">
                         <div id="counterLike">${post.likesCounter}</div>
-                            <button data-post="${post.id}" class="icon-like like-post">
-                                like
-                            </button>
+                            <button data-post="${post.id}" class="icon-like like-post" type="submit"> </button>
+                            <button data-post="${post.id}" class="icon-dislike like-post" type="submit"> </button>
                         </div>
                     <div class="icon-coment"><img src="./img/iconos/coment.png" alt="fotos"></div>
                     
@@ -62,7 +61,5 @@ const template = `
 
 <div id="postPublished"></div>
 `;
-
-
 
 export const feed= new Component(template, onLoad);
