@@ -1,17 +1,16 @@
-import { 
-  getAuth, 
-  createUserWithEmailAndPassword, 
-  signInWithEmailAndPassword, 
-  signInWithPopup, 
-  GoogleAuthProvider, 
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
   onAuthStateChanged,
   signOut,
   FacebookAuthProvider,
   sendEmailVerification,
   //sendPasswordResetEmail//
 } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js";
-
-import { 
+import {
   getFirestore ,
   collection,
   updateDoc,
@@ -24,7 +23,6 @@ import {
   // getStorage,
 } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
-
 //Iniciar servicios
  const firebaseConfig = {
      apiKey: "AIzaSyAlSrkSdzAr2miMg3q0c0_ZWOqIL1EkANs",
@@ -35,12 +33,11 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase
      messagingSenderId: "20460878579",
      appId: "1:20460878579:web:4e56d9c5aadeb762221586"
    };
- 
 export const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore(app);
 // const storage = getStorage(app);
-
+//Crear post
 export async function createpost (textPost="texto por defecto"){
   try {
     let userEmail = localStorage.getItem('correo');
@@ -55,9 +52,8 @@ export async function createpost (textPost="texto por defecto"){
     console.error("Error adding document: ", e);
   }
 }
-
 //mostrar los posts
-export const showPosts = async () => {
+ export const showPosts = async () => {
   const posts = query(collection(db, 'posts'));
   const querySnapShot = await getDocs(posts);
   const allPosts = [];
@@ -66,28 +62,13 @@ export const showPosts = async () => {
   });
   return allPosts;
 };
-
-//actualizar los posts
-//const f = query(collection(db, "posts"));
-//const actuPosts = onSnapshot(f, (querySnapshot) => {
-  //const posts = [];
-  //querySnapshot.forEach((doc) => {
-      //posts.push(doc.data().name);
-      //posts.push(doc.data().description);
-      //posts.push(doc.data().likesCounter);
-      //posts.push(doc.data().likeUsers);
-  //})
-//});
-
 //eliminar post
 export const deletePost = (id) =>{
   deleteDoc(doc(db, 'posts', id));
 };
-
-
 //like
 export const likePost = async (id) => {
-  const userId= localStorage.getItem('uid');
+  const userId=localStorage.getItem('uid');
   const postRef = doc(db, 'posts', id);
   const docLike = await getDoc(postRef);
   const post = docLike.data();
@@ -96,7 +77,7 @@ export const likePost = async (id) => {
       likeUsers: [...post.likeUsers, userId],
       likesCounter: post.likesCounter + 1,
     });
-  } 
+  }
   else {
     await updateDoc(postRef, {
       likeUsers: [...post.likeUsers, userId],
@@ -104,16 +85,13 @@ export const likePost = async (id) => {
     });
   }
 };
-
 //Función de Registarse
 export function register(email, password){
-    
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         //// Signed in
         const user = userCredential.user;
       emailVerification(auth);
-
         alert("usuario creado correctamente");
       })
       .catch((error) => {
@@ -122,8 +100,7 @@ export function register(email, password){
         //console.error("error al crear usuario");
       });
 }
-
-//Función de Iniciar sesión
+////Función de Iniciar sesión
 export function login(email, password){
     signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
@@ -138,47 +115,40 @@ export function login(email, password){
     console.error("usuario no encontrado");
   });
 }
-
-//Función para iniciar sesión con Google
+////Función para iniciar sesión con Google
 export const signWithGoogle = () => {
   const provider = new GoogleAuthProvider();
   signInWithPopup(auth, provider)
     .then((result) => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      //const credential = GoogleAuthProvider.credentialFromResult(result);
-      // const token = credential.accessToken;
-      // The signed-in user info.
-      // const user = result.user;
-      // ...
-      // console.log('resultó google jeje');
+      //// This gives you a Google Access Token. You can use it to access the Google API.
+      ////const credential = GoogleAuthProvider.credentialFromResult(result);
+      //// const token = credential.accessToken;
+      //// The signed-in user info.
+      //// const user = result.user;
       return credential;
     })
     .catch((error) => {
-      // Handle Errors here.
+      //// Handle Errors here.
       const errorCode = error.code;
-      // const errorMessage = error.message;
-      // The email of the user's account used.
-      // const email = error.customData.email;
-      // The AuthCredential type that was used.
-      // const credential = GoogleAuthProvider.credentialFromError(error);
-      // ...
+      //// const errorMessage = error.message;
+      //// The email of the user's account used.
+      //// const email = error.customData.email;
+      //// The AuthCredential type that was used.
+      //// const credential = GoogleAuthProvider.credentialFromError(error);
+      //// ...
       return errorCode;
     });
-   
   };
-
-  //función para autenticar con facebook
+  //función para autenticar con facebook//
   export const signWithFacebook = () => {
     const provider = new FacebookAuthProvider();
     signInWithPopup(auth, provider)
     .then((result) => {
     // The signed-in user info.
     //const user = result.user;
-
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
     const credential = FacebookAuthProvider.credentialFromResult(result);
     //const accessToken = credential.accessToken;
-
     // ...
   })
   .catch((error) => {
@@ -189,24 +159,19 @@ export const signWithGoogle = () => {
     //const email = error.customData.email;
     // The AuthCredential type that was used.
     const credential = FacebookAuthProvider.credentialFromError(error);
-
     // ...
   });
   }
-
-    //funcion para vericar al usuario
     function emailVerification(auth) {
       sendEmailVerification(auth.currentUser)
         .then(() => {
           alert('Te hemos enviado una confirmación a tu correo por favor válida antes de comenzar.');
         });
     }
-
 //Estado de autenticación y datos del usuario
 export const stateUser = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      console.log('estoy logueada', user);
       localStorage.setItem('correo',user.email);
       localStorage.setItem('uid',user.uid);
       window.location.hash = '#/feed';
@@ -215,7 +180,6 @@ export const stateUser = () => {
     localStorage.removeItem('correo');
     window.location.hash = '#/login';
     return ('not logged');
-    
   })
 };
 
