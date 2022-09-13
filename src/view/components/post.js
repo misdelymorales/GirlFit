@@ -1,5 +1,5 @@
 import {Component} from '../component.js';
-import {likePost} from '../../lib/firebase.js';
+import {likePost, deletePost} from '../../lib/firebase.js';
 
 const onLoad = () => {
     const renderPost= [...document.querySelectorAll(".like-post")];
@@ -7,6 +7,14 @@ const onLoad = () => {
         p.addEventListener("click", (e)=>{
             const postId= e.target.getAttribute("data-post");
             likePost(postId);
+        });
+    })
+
+    const deleteP= [...document.querySelectorAll(".delete-post")];
+    deleteP.map(p => {
+        p.addEventListener("click", (e)=>{
+            const postIdDelete= e.target.getAttribute("data-post");
+            deletePost(postIdDelete);
         });
     })
 }
