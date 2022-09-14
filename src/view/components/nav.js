@@ -1,9 +1,14 @@
 import {Component} from '../component.js';
 
-    let menu='';
+    let template='';
+
     const updateNav = (actualPath) => {
         const nav = document.getElementById('nav');
-        menu=(actualPath === '#/login' || actualPath==='#/register') ? '' : `
+        template=(actualPath === '#/login' || actualPath==='#/register') ? `<nav>
+        <div class="logo">
+        <img class="logo" src="img/Logo/logo-header.png">
+        </div>
+    </nav>` : `
         <nav>
         <div class="logo">
         <img class="logo" src="img/Logo/logo-header.png">
@@ -21,10 +26,11 @@ import {Component} from '../component.js';
     </ul> 
         </div></nav>`;
 
-        nav.innerHTML='';
-        nav.innerHTML=menu
+        // nav.innerHTML='';
+        // nav.innerHTML=menu
     }
-    const currentPath=  window.location.hash;
+
+    // const currentPath=  window.location.hash;
 
     //const menu=(currentPath === '#/login' || currentPath==='#/register') ? '' : `
     //     <div>
@@ -39,15 +45,15 @@ import {Component} from '../component.js';
     //     </div>`;
 
 
-   let template= `
-    <nav>
-        <div class="logo">
-        <img class="logo" src="img/Logo/logo-header.png">
-        </div>
-        ${menu}
-    </nav>
-`;
-const screenWidth = window.innerWidth;
-template = ((currentPath === '#/login' || currentPath === '#/register') && screenWidth < 800 ) ?'' : template;
+//    let template= `
+//     <nav>
+//         <div class="logo">
+//         <img class="logo" src="img/Logo/logo-header.png">
+//         </div>
+//         ${menu}
+//     </nav>
+// `;
+// const screenWidth = window.innerWidth;
+// template = ((currentPath === '#/login' || currentPath === '#/register') && screenWidth < 800 ) ?'' : template;
 
 export const nav= new Component(template, updateNav, 'nav');
