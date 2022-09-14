@@ -15,14 +15,15 @@ import {
   getFirestore ,
   collection,
   updateDoc,
-  getDocs,
+  onSnapshot,
   getDoc,
   addDoc,
+  // getDocs,
   query,
   doc,
   deleteDoc,
+  arrayUnion, 
   arrayRemove,
-  arrayUnion,
   // getStorage,
 } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
@@ -38,9 +39,11 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase
      appId: "1:20460878579:web:4e56d9c5aadeb762221586"
    };
  
+//constantes
 export const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore(app);
+const colRef= collection(db, 'posts');
 // const storage = getStorage(app);
 
 //Crear post
@@ -59,22 +62,37 @@ export async function createpost (textPost="texto por defecto"){
   }
 }
 
+//mostrar en tiempo real collection data
+export const showPosts = (callback) =>{
+    const q = query(collection(db, 'posts'));
+    onSnapshot(q, (querySnapShot) => {
+      const allPosts = [];
+      querySnapShot.forEach((doc) => {
+        allPosts.push({...doc.data(), id: doc.id});
+      });
+      console.log({allPosts});
+      callback(allPosts);
+    });
+  
+  
+}
+
+
 //mostrar los posts
- export const showPosts = async () => {
-  const posts = query(collection(db, 'posts'));
-  const querySnapShot = await getDocs(posts);
-  const allPosts = [];
-  querySnapShot.forEach((doc) => {
-    allPosts.push({...doc.data(), id: doc.id});
-  });
-  return allPosts;
-};
+//  export const showPosts = async () => {
+//   const posts = query(collection(db, 'posts'));
+//   const querySnapShot = await getDocs(posts);
+//   const allPosts = [];
+//   querySnapShot.forEach((doc) => {
+//     allPosts.push({...doc.data(), id: doc.id});
+//   });
+//   return allPosts;
+// };
 
 //eliminar post
 export const deletePost = (id) =>{
   deleteDoc(doc(db, 'posts', id));
 };
-
 
 //like
 export const likePost = async (id) => {
@@ -84,13 +102,13 @@ export const likePost = async (id) => {
   const post = docLike.data();
   if (!post.likeUsers.includes(userId)) {
     await updateDoc(postRef, {
-      likeUsers: arrayRemove(userId),
+      likeUsers: arrayUnion(userId),
       likesCounter: post.likesCounter + 1,
     });
   } 
   else {
     await updateDoc(postRef, {
-      likeUsers: arrayUnion(userId),
+      likeUsers: arrayRemove(userId),
       likesCounter: post.likesCounter - 1,
     });
   }
@@ -114,7 +132,7 @@ export function register(email, password){
       });
 }
 
-////Función de Iniciar sesión
+//Función de Iniciar sesión
 export function login(email, password){
     signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
@@ -130,28 +148,28 @@ export function login(email, password){
   });
 }
 
-////Función para iniciar sesión con Google
+//Función para iniciar sesión con Google
 export const signWithGoogle = () => {
   const provider = new GoogleAuthProvider();
   signInWithPopup(auth, provider)
     .then((result) => {
-      //// This gives you a Google Access Token. You can use it to access the Google API.
-      ////const credential = GoogleAuthProvider.credentialFromResult(result);
-      //// const token = credential.accessToken;
-      //// The signed-in user info.
-      //// const user = result.user;
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      //const credential = GoogleAuthProvider.credentialFromResult(result);
+      // const token = credential.accessToken;
+      // The signed-in user info.
+      // const user = result.user;
 
       return credential;
     })
     .catch((error) => {
-      //// Handle Errors here.
+      // Handle Errors here.
       const errorCode = error.code;
-      //// const errorMessage = error.message;
-      //// The email of the user's account used.
-      //// const email = error.customData.email;
-      //// The AuthCredential type that was used.
-      //// const credential = GoogleAuthProvider.credentialFromError(error);
-      //// ...
+      // const errorMessage = error.message;
+      // The email of the user's account used.
+      // const email = error.customData.email;
+      // The AuthCredential type that was used.
+      // const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
       return errorCode;
     });
    
@@ -184,6 +202,7 @@ export const signWithGoogle = () => {
   });
   }
 
+    //función para verficar correo
     function emailVerification(auth) {
       sendEmailVerification(auth.currentUser)
         .then(() => {
