@@ -8,10 +8,11 @@ const onLoad = () => {
 }
 
 const handleRegisterClick = () => {
+    const username= document.getElementById("register-name").value;
     const email= document.getElementById("register-email").value;
     const password= document.getElementById("register-password").value;
 
-    registerFirebase(email, password);
+    registerFirebase(username, email, password);
 }
 
 const template = `
@@ -20,6 +21,7 @@ const template = `
       <div class="mobile-logo "><img src="img/logo/logo-rosa.png"></div>
       <form id="signup-form">
         <h2 class="form_title">Bienvenidas a la primera redSocial para mujeres deportistas</h2>
+        <input class="inputForm" type="name" id="register-name" placeholder="Nombre">
         <input class="inputForm" type="email" id="register-email" placeholder="Correo Electronico">
         <input class="inputForm" type="password" id="register-password" placeholder="Contraseña">
         <p class="session-text">¿Ya tienes cuenta?<br></p>

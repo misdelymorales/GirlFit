@@ -1,8 +1,9 @@
 import {Component} from '../component.js';
 import {likePost, deletePost} from '../../lib/firebase.js';
 
+//función que se ejecuta al inicio
 const onLoad = () => {
-    const renderPost= [...document.querySelectorAll(".like-post")];
+    const renderPost= [...document.querySelectorAll(".like-post")]; 
     renderPost.map(p => {
         p.addEventListener("click", (e)=>{
             const postId= e.target.getAttribute("data-post");
