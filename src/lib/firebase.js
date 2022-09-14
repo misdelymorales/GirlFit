@@ -77,21 +77,17 @@ export const showPosts = (callback) =>{
   
 }
 
-
-//mostrar los posts
-//  export const showPosts = async () => {
-//   const posts = query(collection(db, 'posts'));
-//   const querySnapShot = await getDocs(posts);
-//   const allPosts = [];
-//   querySnapShot.forEach((doc) => {
-//     allPosts.push({...doc.data(), id: doc.id});
-//   });
-//   return allPosts;
-// };
-
 //eliminar post
-export const deletePost = (id) =>{
-  deleteDoc(doc(db, 'posts', id));
+export const deletePost = async (id) =>{
+  const email = localStorage.getItem('correo');
+
+  const postRef = doc(db, 'posts', id);
+  const docLike = await getDoc(postRef);
+  const post = docLike.data();
+
+  if(post.name === email){
+    deleteDoc(doc(db, 'posts', id));
+  }
 };
 
 //like
@@ -115,24 +111,27 @@ export const likePost = async (id) => {
 }; 
 
 //Función de Registarse
-export function register(email, password){
+export function register( email, password){
     
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         //// Signed in
         const user = userCredential.user;
-      emailVerification(auth);
-
+        const userId = user.uid;
+        register(userId, email, password);
         alert("usuario creado correctamente");
       })
       .catch((error) => {
         const errorCode = error.code;
+        console.log(errorCode);
         const errorMessage = error.message;
+        console.log(errorMessage);
         //console.error("error al crear usuario");
       });
 }
 
-//Función de Iniciar sesión
+
+////Función de Iniciar sesión
 export function login(email, password){
     signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
@@ -201,7 +200,7 @@ export const signWithGoogle = () => {
     // ...
   });
   }
-
+  
     //función para verficar correo
     function emailVerification(auth) {
       sendEmailVerification(auth.currentUser)

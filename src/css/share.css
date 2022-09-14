@@ -119,8 +119,10 @@
 
   @media (max-width: 800px) {
     .logo{
-        display: none;
-        opacity: 0;
+        display: flex;
+        
+        /*display: none;*/
+      /*opacity: 0;*/
     }
 
      .nav-menu{
@@ -132,6 +134,7 @@
         left: 0;
         top: 60px;
         background-color: var(--pink);
+        opacity: 0.9;
         border-radius: 30px;
         left: 100%;
     }

@@ -1,17 +1,19 @@
 #container-feed {
-  width: 100%;
-  height: 100vh;
-  display: contents;
-  justify-content: center;
-  background-color: var(--background-color-opacity);
-  padding: 1rem 2rem;
-  justify-content: flex-end;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    background-color: var(--background-color-opacity);
+    padding: 1rem 2rem;
+    justify-content: flex-end;
 }
 
 #post{
-height: 10rem;
-background: white;
-width: 85%;
+  height: 10rem;
+  background: white;
+  width: 90%;
+  border: 1px solid lightgray;
+  border-radius: 0.75rem;
+  margin: auto;
 }
 
 #inputPost {
@@ -36,12 +38,13 @@ justify-content: space-between;
 width: 2rem;
 }
 
-.barra-rosada{
-background: var(--pink);
-display: flex;
-justify-content: space-between;
-height: 2rem;
-align-items: center;
+ .barra-rosada{
+  background: var(--pink);
+  display: flex;
+  justify-content: space-between;
+  height: 2rem;
+  align-items: center;
+  border-radius: 0 0 0.75rem 0.75rem;
 }    
 
 #btnPost{
@@ -67,11 +70,17 @@ width: inherit;
 border-radius: 15px;
 }
 
+#postDone{
+  border: 1px solid lightgray;
+  margin: 1rem 0;
+  border-radius: 0.75rem;
+}
+
 #postPublished{
-margin-top: 3rem;
-height: 10rem;
-background: white;
-width: 90%;
+  height: 10rem;
+  background: white;
+  width: 90%;
+  margin: 3rem auto 0;
 }
 
 .icon-pic{
