@@ -47,7 +47,7 @@ import {Component} from '../component.js';
         ${menu}
     </nav>
 `;
-const screenWidth = window.innerWidth;
-template = ((currentPath === '#/login' || currentPath === '#/register') && screenWidth < 800 ) ?'' : template;
+//´const screenWidth = window.innerWidth;
+//template = ((currentPath === '#/login' || currentPath === '#/register') && screenWidth < 800 ) ?'' : template;
 
 export const nav= new Component(template, updateNav, 'nav');

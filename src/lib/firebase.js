@@ -21,6 +21,8 @@ import {
   query,
   doc,
   deleteDoc,
+  arrayRemove,
+  arrayUnion,
   // getStorage,
 } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
@@ -82,17 +84,17 @@ export const likePost = async (id) => {
   const post = docLike.data();
   if (!post.likeUsers.includes(userId)) {
     await updateDoc(postRef, {
-      likeUsers: [...post.likeUsers, userId],
+      likeUsers: arrayRemove(userId),
       likesCounter: post.likesCounter + 1,
     });
   } 
   else {
     await updateDoc(postRef, {
-      likeUsers: [...post.likeUsers, userId],
+      likeUsers: arrayUnion(userId),
       likesCounter: post.likesCounter - 1,
     });
   }
-};
+}; 
 
 //Función de Registarse
 export function register(email, password){

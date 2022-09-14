@@ -18,7 +18,7 @@ width: 85%;
 width: 100%;
 padding: 5%;
 margin-top: 5%;
-border: 2px solid black;
+border-radius: 15px;
 }
 
 .titte-Post{
@@ -63,7 +63,8 @@ border: none;
 textarea{
 margin-block: 1rem;
 width: inherit;
-border: 2px solid black;
+/*border: 2px solid black;*/
+border-radius: 15px;
 }
 
 #postPublished{
@@ -120,13 +121,17 @@ margin-left: 1rem;
   #inputPost {
     width: 100%;
     height: 8vh;
-    border: 2px solid black;
+    /*border: 2px solid black;*/
+    border: none;
+    border-radius: 15px;
   }
 
   #textareaPost {
-    width: 100%;
+    margin-block: 1rem;
+    width: 80%;
     height: 15vh;
-    border: 2px solid black;
+    /*border: 2px solid black;*/
+    border-radius: 15px;
   }
 
   }
