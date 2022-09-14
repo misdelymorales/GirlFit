@@ -51,7 +51,7 @@ export async function createpost (textPost="texto por defecto"){
   try {
     let userEmail = localStorage.getItem('correo');
     const docRef = await addDoc(collection(db, "posts"), {
-      email: userEmail,
+      name: userEmail,
       description: textPost,
       likesCounter: 0,
       likeUsers: [] //ids de usuarios que dieron like
@@ -78,8 +78,16 @@ export const showPosts = (callback) =>{
 }
 
 //eliminar post
-export const deletePost = (id) =>{
-  deleteDoc(doc(db, 'posts', id));
+export const deletePost = async (id) =>{
+  const email = localStorage.getItem('correo');
+
+  const postRef = doc(db, 'posts', id);
+  const docLike = await getDoc(postRef);
+  const post = docLike.data();
+
+  if(post.name === email){
+    deleteDoc(doc(db, 'posts', id));
+  }
 };
 
 //like
