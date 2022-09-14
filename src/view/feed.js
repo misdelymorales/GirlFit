@@ -6,8 +6,14 @@ import {showPosts} from '../lib/firebase.js';
 
 const onLoad = () => {
     nav.render('nav');
-    showPosts().then((posts)=>{
-        let htmlPost="";
+    showPosts(generatePosts);
+    
+    document.getElementById("btnPost").addEventListener("click", publishPost);
+    
+}
+
+const generatePosts = (posts) => {
+    let htmlPost="";
         posts.forEach((post)=>{
             htmlPost+=`
                 <div id="tittlePostPublished" class="tittle-post-published">
@@ -32,11 +38,7 @@ const onLoad = () => {
             `
         });
         post(htmlPost).render("postPublished");
-    });
-    
-    document.getElementById("btnPost").addEventListener("click", publishPost);
-    
-}
+};
 
 const publishPost = () => {
     const textPost= document.getElementById("textareaPost").value;
