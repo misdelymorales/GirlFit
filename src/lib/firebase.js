@@ -15,12 +15,15 @@ import {
   getFirestore ,
   collection,
   updateDoc,
-  getDocs,
+  onSnapshot,
   getDoc,
   addDoc,
+  // getDocs,
   query,
   doc,
   deleteDoc,
+  arrayUnion, 
+  arrayRemove,
   // getStorage,
 } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
@@ -36,9 +39,11 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase
      appId: "1:20460878579:web:4e56d9c5aadeb762221586"
    };
  
+//constantes
 export const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore(app);
+const colRef= collection(db, 'posts');
 // const storage = getStorage(app);
 
 //Crear post
@@ -46,7 +51,7 @@ export async function createpost (textPost="texto por defecto"){
   try {
     let userEmail = localStorage.getItem('correo');
     const docRef = await addDoc(collection(db, "posts"), {
-      name: userEmail,
+      email: userEmail,
       description: textPost,
       likesCounter: 0,
       likeUsers: [] //ids de usuarios que dieron like
@@ -57,22 +62,25 @@ export async function createpost (textPost="texto por defecto"){
   }
 }
 
-//mostrar los posts
- export const showPosts = async () => {
-  const posts = query(collection(db, 'posts'));
-  const querySnapShot = await getDocs(posts);
-  const allPosts = [];
-  querySnapShot.forEach((doc) => {
-    allPosts.push({...doc.data(), id: doc.id});
-  });
-  return allPosts;
-};
+//mostrar en tiempo real collection data
+export const showPosts = (callback) =>{
+    const q = query(collection(db, 'posts'));
+    onSnapshot(q, (querySnapShot) => {
+      const allPosts = [];
+      querySnapShot.forEach((doc) => {
+        allPosts.push({...doc.data(), id: doc.id});
+      });
+      console.log({allPosts});
+      callback(allPosts);
+    });
+  
+  
+}
 
 //eliminar post
 export const deletePost = (id) =>{
   deleteDoc(doc(db, 'posts', id));
 };
-
 
 //like
 export const likePost = async (id) => {
@@ -82,35 +90,38 @@ export const likePost = async (id) => {
   const post = docLike.data();
   if (!post.likeUsers.includes(userId)) {
     await updateDoc(postRef, {
-      likeUsers: [...post.likeUsers, userId],
+      likeUsers: arrayUnion(userId),
       likesCounter: post.likesCounter + 1,
     });
   } 
   else {
     await updateDoc(postRef, {
-      likeUsers: [...post.likeUsers, userId],
+      likeUsers: arrayRemove(userId),
       likesCounter: post.likesCounter - 1,
     });
   }
 };
 
 //Función de Registarse
-export function register(email, password){
+export function register( email, password){
     
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         //// Signed in
         const user = userCredential.user;
-      emailVerification(auth);
-
+        const userId = user.uid;
+        register(userId, email, password);
         alert("usuario creado correctamente");
       })
       .catch((error) => {
         const errorCode = error.code;
+        console.log(errorCode);
         const errorMessage = error.message;
+        console.log(errorMessage);
         //console.error("error al crear usuario");
       });
 }
+
 
 ////Función de Iniciar sesión
 export function login(email, password){
@@ -181,6 +192,7 @@ export const signWithGoogle = () => {
     // ...
   });
   }
+  
 
     function emailVerification(auth) {
       sendEmailVerification(auth.currentUser)
