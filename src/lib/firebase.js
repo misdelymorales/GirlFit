@@ -58,7 +58,7 @@ export async function createpost (textPost="texto por defecto"){
     });
     console.log("Document written with ID: ", docRef.id);
   } catch (e) {
-    console.error("Error adding document: ", e);
+    // console.error("Error adding document: ", e);
   }
 }
 
@@ -90,11 +90,10 @@ export const deletePost = async (id) =>{
     .then(() => alert('éxito al borrar tu publicación'))
     //.catch((error) => alert('no se puede eliminar'));
   }
-
   if(!post.name === email){
-    deleteDoc(doc(db, 'posts', id))
-    .catch((error) => alert('no se puede eliminar'));
-  }
+    deleteDoc(doc(db, 'posts', id));
+    console.info('no se puede eliminar');
+}
 };
 
 //like
