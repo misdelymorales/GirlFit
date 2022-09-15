@@ -86,7 +86,14 @@ export const deletePost = async (id) =>{
   const post = docLike.data();
 
   if(post.name === email){
-    deleteDoc(doc(db, 'posts', id));
+    deleteDoc(doc(db, 'posts', id))
+    .then(() => alert('éxito al borrar tu publicación'))
+    //.catch((error) => alert('no se puede eliminar'));
+  }
+
+  if(!post.name === email){
+    deleteDoc(doc(db, 'posts', id))
+    .catch((error) => alert('no se puede eliminar'));
   }
 };
 
