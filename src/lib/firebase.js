@@ -86,7 +86,14 @@ export const deletePost = async (id) =>{
   const post = docLike.data();
 
   if(post.name === email){
-    deleteDoc(doc(db, 'posts', id));
+    deleteDoc(doc(db, 'posts', id))
+    .then(() => alert('éxito al borrar tu publicación'))
+    //.catch((error) => alert('no se puede eliminar'));
+  }
+
+  if(!post.name === email){
+    deleteDoc(doc(db, 'posts', id))
+    .catch((error) => alert('no se puede eliminar'));
   }
 };
 
@@ -108,7 +115,7 @@ export const likePost = async (id) => {
       likesCounter: post.likesCounter - 1,
     });
   }
-};
+}; 
 
 //Función de Registarse
 export function register( email, password){
@@ -147,28 +154,28 @@ export function login(email, password){
   });
 }
 
-////Función para iniciar sesión con Google
+//Función para iniciar sesión con Google
 export const signWithGoogle = () => {
   const provider = new GoogleAuthProvider();
   signInWithPopup(auth, provider)
     .then((result) => {
-      //// This gives you a Google Access Token. You can use it to access the Google API.
-      ////const credential = GoogleAuthProvider.credentialFromResult(result);
-      //// const token = credential.accessToken;
-      //// The signed-in user info.
-      //// const user = result.user;
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      //const credential = GoogleAuthProvider.credentialFromResult(result);
+      // const token = credential.accessToken;
+      // The signed-in user info.
+      // const user = result.user;
 
       return credential;
     })
     .catch((error) => {
-      //// Handle Errors here.
+      // Handle Errors here.
       const errorCode = error.code;
-      //// const errorMessage = error.message;
-      //// The email of the user's account used.
-      //// const email = error.customData.email;
-      //// The AuthCredential type that was used.
-      //// const credential = GoogleAuthProvider.credentialFromError(error);
-      //// ...
+      // const errorMessage = error.message;
+      // The email of the user's account used.
+      // const email = error.customData.email;
+      // The AuthCredential type that was used.
+      // const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
       return errorCode;
     });
    
@@ -201,7 +208,7 @@ export const signWithGoogle = () => {
   });
   }
   
-
+    //función para verficar correo
     function emailVerification(auth) {
       sendEmailVerification(auth.currentUser)
         .then(() => {
@@ -232,4 +239,3 @@ signOut(auth).then(() => {
 }).catch((error) => {
   // An error happened.
 });
-

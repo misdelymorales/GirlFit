@@ -104,11 +104,12 @@
       }  
 
     .checkbtn {
-        font-size: 20px;
+        font-size: 15px;
         color: #fff;
         float: right;
-        line-height: 50px;
-        margin-right: 20px;
+        /*line-height: 20px;*/
+        margin-right: 10px;
+        margin: 5px;
         cursor: pointer;
         display: none;
     }
@@ -119,8 +120,10 @@
 
   @media (max-width: 800px) {
     .logo{
-        display: none;
-        opacity: 0;
+        display: flex;
+        width: 40%;
+        /*display: none;*/
+      /*opacity: 0;*/
     }
 
      .nav-menu{
@@ -132,6 +135,7 @@
         left: 0;
         top: 60px;
         background-color: var(--pink);
+        opacity: 0.9;
         border-radius: 30px;
         left: 100%;
     }

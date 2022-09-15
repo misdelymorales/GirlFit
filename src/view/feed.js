@@ -68,7 +68,6 @@ const template = `
             <div> <button  id="btnPost">Publicar</button> </div>
         </div>
     </div>
-
 <div id="postPublished"></div>
 `;
 
