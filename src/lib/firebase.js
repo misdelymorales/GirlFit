@@ -8,6 +8,8 @@ import {
   signOut,
   FacebookAuthProvider,
   sendEmailVerification,
+  //emailVerification,
+  //activeUser,
   //sendPasswordResetEmail//
 } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js";
 
@@ -88,14 +90,9 @@ export const deletePost = async (id) =>{
   if(post.name === email){
     deleteDoc(doc(db, 'posts', id))
     .then(() => alert('éxito al borrar tu publicación'))
-    //.catch((error) => alert('no se puede eliminar'));
-  }
-
-  if(!post.name === email){
-    deleteDoc(doc(db, 'posts', id))
-    .catch((error) => alert('no se puede eliminar'));
-  }
-};
+    //.catch((error) => alert('no se puede eliminar'))
+    }
+  };
 
 //like
 export const likePost = async (id) => {
