@@ -15,7 +15,10 @@ const onLoad = () => {
     deleteP.map(p => {
         p.addEventListener("click", (e)=>{
             const postIdDelete= e.target.getAttribute("data-post");
-            deletePost(postIdDelete);
+            const salir =confirm('¿Quieres eliminar el post?');
+            if(salir === true){
+                deletePost(postIdDelete);
+            };
         });
     })
 }
