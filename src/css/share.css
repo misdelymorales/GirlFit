@@ -18,8 +18,8 @@
 
     body{
       display: grid;
-      min-height: 100vh;
       grid-template-rows: auto 1fr auto;
+      min-height: 100vh;
     }
 
     #root{
@@ -33,7 +33,7 @@
    
     /*Footer*/
     footer{
-      background-color: rgba(0, 0, 0, 0.78);
+      background-color: rgba(0, 0, 0, 1);
       color: white;
       justify-content: space-around;
       text-align: center;
@@ -75,6 +75,8 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
+      z-index: 9999;
+      position: fixed;
       }
       
       nav ul {
@@ -122,8 +124,6 @@
     .logo{
         display: flex;
         width: 40%;
-        /*display: none;*/
-      /*opacity: 0;*/
     }
 
      .nav-menu{
@@ -133,22 +133,9 @@
         height: auto;
         position: fixed;
         left: 0;
-        top: 60px;
+        top: 25px;
         background-color: var(--pink);
-        opacity: 0.9;
-        border-radius: 30px;
         left: 100%;
-    }
-    
-    nav ul li {
-        height: 30px;
-        display: flex;
-        align-items: center;
-        margin: 10px;
-      }
-
-    nav {
-     background-color: var(--pink);
     }
 
     .checkbtn{

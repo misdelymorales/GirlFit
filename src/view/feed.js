@@ -17,24 +17,20 @@ const generatePosts = (posts) => {
     let htmlPost="";
         posts.forEach((post)=>{
             htmlPost+=`
-                <div id="postDone">
+                <div id="postDone" class="postPublished">
                     <div id="tittlePostPublished" class="tittle-post-published">
                         <div class="user">
                             <img class="userdisplay" src="./img/iconos/userdisplay.png" alt="fotos"> 
-                            ${post.name}
+                            <h4>${post.name}</h4>
                         </div>
                         <button class="binPost delete-post" data-post="${post.id}"></button>
                     </div>
-                
-                    <textarea id="inputPost"  rows="4" placeholder="Cuentanos que entrenamiento vas hacer hoy...">${post.description}</textarea>
+                    <p id="inputPost">${post.description}</p>
                     <div class="barra-rosada">
                         <div class="like">
-                            <div id="counterLike">${post.likesCounter}</div>
-                                <button data-post="${post.id}" class="icon-like like-post" type="submit"> </button>
-                            </div>
-                        <div class="icon-coment"><img src="./img/iconos/coment.png" alt="fotos"></div>
-                        
+                            <button data-post="${post.id}" class="icon-like like-post" type="submit"> ${post.likesCounter}</button>
                         </div>
+                        <div class="icon-coment"><img src="./img/iconos/coment.png" alt="fotos"></div>
                     </div>
                 </div>
             `
@@ -45,8 +41,12 @@ const generatePosts = (posts) => {
 //Función que publica
 const publishPost = () => {
     const textPost= document.getElementById("textareaPost").value; //obtine valor de textarea
-    createpost(textPost); //llamo función de crear post
+    if(!textPost){
+        alert('El input esta vacío');
+    } else{
+        createpost(textPost); //llamo función de crear post
     clear(); //ejecuta funcion que limpia
+    }
 }
 
 //Función para limpiar textarea después de publicar
@@ -68,7 +68,7 @@ const template = `
             <div> <button  id="btnPost">Publicar</button> </div>
         </div>
     </div>
-<div id="postPublished"></div>
+<div id="postPublished" ></div>
 `;
 
 export const feed= new Component(template, onLoad);
