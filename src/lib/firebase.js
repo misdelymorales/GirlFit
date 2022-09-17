@@ -207,13 +207,13 @@ export const signWithGoogle = () => {
   });
   }
   
-    //función para verficar correo
-    function emailVerification(auth) {
-      sendEmailVerification(auth.currentUser)
-        .then(() => {
-          alert('Te hemos enviado una confirmación a tu correo por favor válida antes de comenzar.');
-        });
-    }
+  //función para verficar correo
+  function emailVerification(auth) {
+    sendEmailVerification(auth.currentUser)
+      .then(() => {
+        alert('Te hemos enviado una confirmación a tu correo por favor válida antes de comenzar.');
+      });
+  }
 
 //Estado de autenticación y datos del usuario
 export const stateUser = () => {

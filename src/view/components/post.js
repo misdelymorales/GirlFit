@@ -15,12 +15,19 @@ const onLoad = () => {
     deleteP.map(p => {
         p.addEventListener("click", (e)=>{
             const postIdDelete= e.target.getAttribute("data-post");
-            const salir =confirm('¿Quieres eliminar el post?');
-            if(salir === true){
+            if(confirm('¿Quieres eliminar el post?') === true){
                 deletePost(postIdDelete);
             };
         });
     })
+
+    const textPost= document.getElementById("inputPost");
+    const textareaPost= document.getElementById("textareaPost");
+    const edit=[...document.querySelectorAll('icon-pen')];
+    edit.addEventListener('change', () => {
+        preview.textPost=this.textareaPost.value
+    });
+    
 }
 
 export const post = (template) => {
