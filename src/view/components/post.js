@@ -31,8 +31,8 @@ const onLoad = () => {
         editTextarea.classList.remove('hide');
         const editParagraph= document.getElementById(`inputPost-${postId}`);
         editParagraph.classList.add('hide');
-        const showSaveCancel= document.getElementById(`buttonSaveCancel-${postId}`);
-        showSaveCancel.classList.remove('hide');
+        const saveCancel= document.getElementById(`buttonSaveCancel-${postId}`);
+        saveCancel.classList.remove('hide');
         const hideButtonEdit= document.getElementById(`buttonUserEdit-${postId}`);
         hideButtonEdit.classList.add('hide');
     }));
@@ -44,7 +44,19 @@ const onLoad = () => {
         editPosts(postId, editTextarea.value);
     }));
 
-
+    const cancelEditP= [...document.querySelectorAll(".cancel")];
+    cancelEditP.map((element) =>element.addEventListener('click', (e)=>{
+        const postId= e.target.getAttribute('data-post');
+        const editTextarea= document.getElementById(`textareaEdit-${postId}`);
+        const paragraph= document.getElementById(`inputPost-${postId}`);
+        editTextarea.value=paragraph.innerHTML;
+        editTextarea.classList.add('hide');
+        paragraph.classList.remove('hide');
+        const saveCancel= document.getElementById(`buttonSaveCancel-${postId}`);
+        saveCancel.classList.add('hide');
+        const buttonEdit= document.getElementById(`buttonUserEdit-${postId}`);
+        buttonEdit.classList.remove('hide');
+    }));
 }
 
 

@@ -141,7 +141,7 @@ textarea{
   margin-right: 0.2rem;
 }
 
-.save{
+.save, .cancel{
   color: var(--pink);
   width: 1rem;
   border: none;
@@ -177,9 +177,3 @@ textarea{
   color: var(--pink);
 }
 
-@media (min-width: 800px) {
- 
-  #container-feed {
-    width: 80%;
-  }
-}
