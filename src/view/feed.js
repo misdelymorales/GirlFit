@@ -40,7 +40,7 @@ const generatePosts = (posts) => {
 
 //Función que publica
 const publishPost = () => {
-    const textPost= document.getElementById("textareaPost").value; //obtine valor de textarea
+    const textPost= document.getElementById("textareaPost").value; //obtiene valor de textarea
     if(!textPost){
         alert('El input esta vacío');
     } else{

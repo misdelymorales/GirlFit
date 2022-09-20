@@ -7,9 +7,8 @@ import {
   onAuthStateChanged,
   signOut,
   FacebookAuthProvider,
-  sendEmailVerification,
-  //emailVerification,
-  //activeUser,
+  //sendEmailVerification,
+  //sendSignInLinkToEmail,
   //sendPasswordResetEmail//
 } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js";
 
@@ -74,9 +73,7 @@ export const showPosts = (callback) =>{
       });
       console.log({allPosts});
       callback(allPosts);
-    });
-  
-  
+    });  
 }
 
 //eliminar post
@@ -118,9 +115,8 @@ export const likePost = async (id) => {
   }
 }; 
 
-//Función de Registarse
+//Función de Registrarse
 export function register( email, password){
-    
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         //// Signed in
@@ -134,10 +130,23 @@ export function register( email, password){
         console.log(errorCode);
         const errorMessage = error.message;
         console.log(errorMessage);
-        //console.error("error al crear usuario");
+        //console.log("error al crear usuario");
+        switch (errorCode) {
+          case 'auth/wrong-password':
+            alert('La contraseña es incorrecta');
+            break;
+          case 'auth/user-not-found':
+            alert('El usuario no ha sido encontrado');
+            break;
+          case 'auth/invalid-email':
+            alert('El correo no es válido');
+            break;
+          case 'auth/internal-error':
+            alert('Ingrese la contraseña');
+            break;
+        }
       });
-}
-
+     }
 
 ////Función de Iniciar sesión
 export function login(email, password){
@@ -152,6 +161,20 @@ export function login(email, password){
     const errorCode = error.code;
     const errorMessage = error.message;
     console.error("usuario no encontrado");
+    switch (errorCode) {
+      case 'auth/wrong-password':
+        alert('La contraseña es incorrecta');
+        break;
+      case 'auth/user-not-found':
+        alert('El usuario no ha sido encontrado');
+        break;
+      case 'auth/invalid-email':
+        alert('El correo no es válido');
+        break;
+      case 'auth/internal-error':
+        alert('Ingrese la contraseña');
+        break;
+    }
   });
 }
 
@@ -209,14 +232,6 @@ export const signWithGoogle = () => {
   });
   }
   
-    //función para verficar correo
-    function emailVerification(auth) {
-      sendEmailVerification(auth.currentUser)
-        .then(() => {
-          alert('Te hemos enviado una confirmación a tu correo por favor válida antes de comenzar.');
-        });
-    }
-
 //Estado de autenticación y datos del usuario
 export const stateUser = () => {
   onAuthStateChanged(auth, (user) => {

@@ -34,10 +34,11 @@
     /*Footer*/
     footer{
       background-color: rgba(0, 0, 0, 1);
+      opacity: 0.8;
       color: white;
       justify-content: space-around;
       text-align: center;
-      bottom: 0;
+      top: 97%;
       width: 100%;
       display: flex;
       position: fixed;

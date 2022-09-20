@@ -153,6 +153,17 @@ display: flex;
   color: var(--pink);
 }
 
+.ediPost{
+background-image: url("../img/iconos/editar.png");
+width: 1.7rem;
+border: none;
+cursor: pointer;
+background-color: unset;
+background-repeat: no-repeat;
+height: 1.7rem;
+margin: auto 0.25rem 0.3rem 0 ;
+}
+
 @media (min-width: 800px) {
  
   #container-feed {
