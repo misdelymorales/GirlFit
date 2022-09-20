@@ -60,7 +60,15 @@ export async function createpost (textPost="texto por defecto"){
   } catch (e) {
     // console.error("Error adding document: ", e);
   }
-}
+};
+
+//editar post
+export async function editPosts(id, textarea){
+  const postEdit = doc(db, 'posts', id);
+  await updateDoc(postEdit, {
+    description: textarea,
+  });
+};
 
 //mostrar en tiempo real collection data
 export const showPosts = (callback) =>{
@@ -70,12 +78,11 @@ export const showPosts = (callback) =>{
       querySnapShot.forEach((doc) => {
         allPosts.push({...doc.data(), id: doc.id});
       });
-      console.log({allPosts});
       callback(allPosts);
     });
   
   
-}
+};
 
 //eliminar post
 export const deletePost = async (id) =>{
