@@ -130,13 +130,27 @@
      .nav-menu{
         flex-direction: column;
         align-items: center;
-        width: 100%;
-        height: auto;
+        margin: auto 50%;
+        top: 4%;
+        width: 50%;
+        height: 25%;
         position: fixed;
-        left: 0;
-        top: 25px;
+        right: 0;
         background-color: var(--pink);
-        left: 100%;
+        right: 100%;
+        color: white;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      background-color: transparent;
+      color: white;
+      padding: 0;
+      border-radius: 0px;
+      }
+
+    nav a:hover {
+      background-color: transparent;
     }
 
     .checkbtn{
