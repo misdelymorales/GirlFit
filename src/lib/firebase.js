@@ -60,7 +60,15 @@ export async function createpost (textPost="texto por defecto"){
   } catch (e) {
     // console.error("Error adding document: ", e);
   }
-}
+};
+
+//editar post
+export async function editPosts(id, textarea){
+  const postEdit = doc(db, 'posts', id);
+  await updateDoc(postEdit, {
+    description: textarea,
+  });
+};
 
 //mostrar en tiempo real collection data
 export const showPosts = (callback) =>{
@@ -70,12 +78,11 @@ export const showPosts = (callback) =>{
       querySnapShot.forEach((doc) => {
         allPosts.push({...doc.data(), id: doc.id});
       });
-      console.log({allPosts});
       callback(allPosts);
     });
   
   
-}
+};
 
 //eliminar post
 export const deletePost = async (id) =>{
@@ -133,7 +140,23 @@ export function register( email, password){
         const errorMessage = error.message;
         console.log(errorMessage);
         //console.error("error al crear usuario");
-      });
+
+      // alerts según error
+      switch (errorCode) {
+        case 'auth/email-already-in-use':
+          alert('Este correo ya está en uso');
+          break;
+        case 'auth/missing-email':
+          alert('Por favor completar su correo');
+          break;
+        case 'auth/invalid-email':
+          alert('Correo inválido');
+          break;
+        case 'auth/weak-password':
+          alert('Su contraseña debe tener al menos 6 caracteres alfanuméricos');
+          break;
+      }
+    });
 }
 
 
@@ -150,6 +173,21 @@ export function login(email, password){
     const errorCode = error.code;
     const errorMessage = error.message;
     console.error("usuario no encontrado");
+
+    switch (errorCode) {
+      case 'auth/wrong-password':
+        alert('La contraseña es incorrecta');
+        break;
+      case 'auth/user-not-found':
+        alert('El usuario no ha sido encontrado');
+        break;
+      case 'auth/invalid-email':
+        alert('El correo no es válido');
+        break;
+      case 'auth/internal-error':
+        alert('Ingrese la contraseña');
+        break;
+    }
   });
 }
 
