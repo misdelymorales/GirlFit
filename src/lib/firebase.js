@@ -80,15 +80,10 @@ export const showPosts = (callback) =>{
         allPosts.push({...doc.data(), id: doc.id});
       });
       callback(allPosts);
-<<<<<<< HEAD
-    });  
-}
-=======
     });
   
   
 };
->>>>>>> e18e0245ad26788cddf22045e8db1d50b37e0de6
 
 //eliminar post
 export const deletePost = async (id) =>{
@@ -144,25 +139,6 @@ export function register( email, password){
         console.log(errorCode);
         const errorMessage = error.message;
         console.log(errorMessage);
-<<<<<<< HEAD
-        //console.log("error al crear usuario");
-        switch (errorCode) {
-          case 'auth/wrong-password':
-            alert('La contraseña es incorrecta');
-            break;
-          case 'auth/user-not-found':
-            alert('El usuario no ha sido encontrado');
-            break;
-          case 'auth/invalid-email':
-            alert('El correo no es válido');
-            break;
-          case 'auth/internal-error':
-            alert('Ingrese la contraseña');
-            break;
-        }
-      });
-     }
-=======
         //console.error("error al crear usuario");
 
       // alerts según error
@@ -183,7 +159,6 @@ export function register( email, password){
     });
 }
 
->>>>>>> e18e0245ad26788cddf22045e8db1d50b37e0de6
 
 ////Función de Iniciar sesión
 export function login(email, password){
@@ -198,10 +173,6 @@ export function login(email, password){
     const errorCode = error.code;
     const errorMessage = error.message;
     console.error("usuario no encontrado");
-<<<<<<< HEAD
-=======
-
->>>>>>> e18e0245ad26788cddf22045e8db1d50b37e0de6
     switch (errorCode) {
       case 'auth/wrong-password':
         alert('La contraseña es incorrecta');
