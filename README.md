@@ -20,10 +20,6 @@ Yo como ***usuaria***, Quisiera poder loguearmne con google o mi facebook sin te
 
 Leímos el readme proporcionado, lo analizamos y definimos la Red Social que queriamos diseñar, enfoncándonos en las mujeres amantes de la vida fitness, teniendo como objetivo la unificación e interacción del tipo de entrenamiento a realizar, hicimos bocetos basados en la recopilación de información de las entrevistas a las usuarias colocándolas a ellas como principal prioridad de sus necesidades, de ésta manera tener la base de donde comenzar.
 
-![bvcghhb](assets/readme/prototipo1-sc.jpg)
-![bvcghhb](assets/readme/prototipo2-sc.jpg)
-
-
 ***Prototipo de Mobile First***
 
 Con el análisis obtenido pudimos iniciar nuestro diseño, para Mobile first 
