@@ -28,20 +28,10 @@ Leímos el readme proporcionado, lo analizamos y definimos la Red Social que que
 
 Con el análisis obtenido pudimos iniciar nuestro diseño, para Mobile first 
 
-![bvcghhb]()
- ![bvcghhb]()
-
  :sparkles: ***Prototipo Desktop*** :sparkles:
 
  Para este prototipo fue necesario ir iterando diseños hasta que pudimos cumplir con los diferentes requerimientos de ambos usuarios. 
 
- ![home web]()
- ![home web]()
- ![home web]()
- ![home web]()
- ![characters web]()
- ![characters web]()
- ![characters web ]()
  
 #### 3. Solución de las Necesidades de las usuarias :thinking:
 Está Red Social esta diseñada en todas las mujeres que les apasiona entrenar y atraves de ella puedan unirse y darse tips, compartir entrenamientos y mucho ánimo en el mundo fitness.
