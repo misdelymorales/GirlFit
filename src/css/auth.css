@@ -28,7 +28,7 @@ a {
 }
 
 .session-text{
-  margin-top: 6%;
+  margin-top: 8%;
 }
 
 .desktop-logo {
@@ -69,7 +69,7 @@ a {
 }
 
 #container-sign-in {
-  width: 30%;
+  width: 40%;
   height: 70%;
   margin: 2rem;
   padding: 1rem;
@@ -91,7 +91,7 @@ a {
 }
 
 #container-sign-up {
-  width: 30%;
+  width: 40%;
   height: 70%;
   margin: 2rem;
   padding: 1rem;

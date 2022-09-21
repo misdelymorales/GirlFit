@@ -8,7 +8,10 @@ const onLoad = () => {
 }
 
 const handleRegisterClick = () => {
+<<<<<<< HEAD
     //const username= document.getElementById("register-name").value;
+=======
+>>>>>>> e18e0245ad26788cddf22045e8db1d50b37e0de6
     const email= document.getElementById("register-email").value;
     const password= document.getElementById("register-password").value;
 
@@ -23,10 +26,12 @@ const template = `
         <h2 class="form_title">Bienvenidas a la primera redSocial para mujeres deportistas</h2>
         <input class="inputForm" type="email" id="register-email" placeholder="Correo Electronico">
         <input class="inputForm" type="password" id="register-password" placeholder="Contraseña">
-        <p class="session-text">¿Ya tienes cuenta?<br></p>
-        <a href="#/login">Inicia Sesión</a>
       </form>
       <button class="button-auth" type="submit" id="btn-sing-up">Registrarse</button>
+      <div class="session-text">
+        <p >¿Ya tienes cuenta?<br></p>
+        <a href="#/login">Inicia Sesión</a>
+      </div>
   </di>  `;
 
 export const register = new Component(template, onLoad);

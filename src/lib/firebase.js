@@ -61,7 +61,15 @@ export async function createpost (textPost="texto por defecto"){
   } catch (e) {
     // console.error("Error adding document: ", e);
   }
-}
+};
+
+//editar post
+export async function editPosts(id, textarea){
+  const postEdit = doc(db, 'posts', id);
+  await updateDoc(postEdit, {
+    description: textarea,
+  });
+};
 
 //mostrar en tiempo real collection data
 export const showPosts = (callback) =>{
@@ -71,10 +79,16 @@ export const showPosts = (callback) =>{
       querySnapShot.forEach((doc) => {
         allPosts.push({...doc.data(), id: doc.id});
       });
-      console.log({allPosts});
       callback(allPosts);
+<<<<<<< HEAD
     });  
 }
+=======
+    });
+  
+  
+};
+>>>>>>> e18e0245ad26788cddf22045e8db1d50b37e0de6
 
 //eliminar post
 export const deletePost = async (id) =>{
@@ -130,6 +144,7 @@ export function register( email, password){
         console.log(errorCode);
         const errorMessage = error.message;
         console.log(errorMessage);
+<<<<<<< HEAD
         //console.log("error al crear usuario");
         switch (errorCode) {
           case 'auth/wrong-password':
@@ -147,6 +162,28 @@ export function register( email, password){
         }
       });
      }
+=======
+        //console.error("error al crear usuario");
+
+      // alerts según error
+      switch (errorCode) {
+        case 'auth/email-already-in-use':
+          alert('Este correo ya está en uso');
+          break;
+        case 'auth/missing-email':
+          alert('Por favor completar su correo');
+          break;
+        case 'auth/invalid-email':
+          alert('Correo inválido');
+          break;
+        case 'auth/weak-password':
+          alert('Su contraseña debe tener al menos 6 caracteres alfanuméricos');
+          break;
+      }
+    });
+}
+
+>>>>>>> e18e0245ad26788cddf22045e8db1d50b37e0de6
 
 ////Función de Iniciar sesión
 export function login(email, password){
@@ -161,6 +198,10 @@ export function login(email, password){
     const errorCode = error.code;
     const errorMessage = error.message;
     console.error("usuario no encontrado");
+<<<<<<< HEAD
+=======
+
+>>>>>>> e18e0245ad26788cddf22045e8db1d50b37e0de6
     switch (errorCode) {
       case 'auth/wrong-password':
         alert('La contraseña es incorrecta');
