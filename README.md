@@ -38,7 +38,7 @@ Está Red Social esta diseñada en todas las mujeres que les apasiona entrenar y
 
 
 Link a nuestra web:
-luisaele28.github.io
+https://luisaele28.github.io/Red-social/
 
 
 
