@@ -41,6 +41,7 @@
       width: 100%;
       display: flex;
       position: fixed;
+      bottom: 0;
     }
 
     /*Formulario*/
@@ -94,22 +95,23 @@
       
       nav ul li a {
       text-decoration: none;
-      background-color:#fff;
-      color: black;
-      opacity:.42; 
-      padding: 8px 16px;
-      border-radius: 20px;
+      color: white;
+      }
+      nav ul li a svg{
+        width: 20px;
+        align-items: center;
+        margin-left: 10px;
       }
       
-      nav a:hover {
-      background-color: gray;
+      nav li:hover {
+      background-color: var(--background-color-opacity);
+      height: 35px;
       }  
 
     .checkbtn {
         font-size: 15px;
         color: #fff;
         float: right;
-        /*line-height: 20px;*/
         margin-right: 10px;
         margin: 5px;
         cursor: pointer;
@@ -120,6 +122,8 @@
         display: none;
     }
 
+
+
   @media (max-width: 800px) {
     .logo{
         display: flex;
@@ -129,12 +133,10 @@
      .nav-menu{
         flex-direction: column;
         align-items: center;
-        margin: auto 50%;
-        top: 4%;
-        width: 50%;
-        height: 25%;
+        margin: auto 63%;
+        top: 3.8%;
+        width: 37%;
         position: fixed;
-        right: 0;
         background-color: var(--pink);
         right: 100%;
         color: white;
@@ -142,10 +144,13 @@
 
     nav ul li a {
       text-decoration: none;
-      background-color: transparent;
       color: white;
-      padding: 0;
-      border-radius: 0px;
+      opacity:1; 
+      background: none;
+      }
+
+      nav ul li a svg{
+        margin-left:  0;
       }
 
     nav a:hover {

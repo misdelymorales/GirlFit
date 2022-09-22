@@ -22,7 +22,7 @@ const generatePosts = (posts) => {
                     <div id="tittlePostPublished" class="tittle-post-published">
                         <div class="user" >
                             <img class="userdisplay" src="./img/iconos/userdisplay.png" alt="fotos"> 
-                            <h4>${post.name}</h4>
+                            <h5>${post.name}</h5>
                         </div>
                             ${
                                 showEdit ? '' : `
