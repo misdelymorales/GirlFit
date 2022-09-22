@@ -15,10 +15,17 @@
   margin: auto;
 }
 
-#inputPost {
+.inputPost {
   width: 100%;
   text-align: left;
   padding: 0 1rem 1rem 3rem;
+}
+
+.textareaEdit{
+  width: 88%;
+  text-align: left;
+  padding: 0.3rem 0.3rem 0.3rem 0.2rem;
+  margin-left: 2%;
 }
 
 .titte-Post{
@@ -27,10 +34,10 @@
 }
 
 .tittle-post-published{
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
 }
 
 .userdisplay {
@@ -70,6 +77,14 @@ padding: 0.5rem;
 textarea{
   width: inherit;
   border-radius: 0.4rem;
+}
+
+.hide{
+  display: none;
+}
+
+.active{
+  display: block;
 }
 
 #postDone{
@@ -120,6 +135,24 @@ textarea{
   margin-right: 0.3rem;
 }
 
+.editPublished{
+  color: var(--pink);
+  width: 1rem;
+  border: none;
+  cursor: pointer;
+  background-color: unset;
+  margin-right: 0.2rem;
+}
+
+.save, .cancel{
+  color: var(--pink);
+  width: 1rem;
+  border: none;
+  cursor: pointer;
+  background-color: unset;
+  margin-right: 0.2rem;
+}
+
 .binPost{
   color: var(--pink);
   width: 1rem;
@@ -147,9 +180,3 @@ textarea{
   color: var(--pink);
 }
 
-@media (min-width: 800px) {
- 
-  #container-feed {
-    width: 80%;
-  }
-}

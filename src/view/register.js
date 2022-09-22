@@ -8,11 +8,10 @@ const onLoad = () => {
 }
 
 const handleRegisterClick = () => {
-    const username= document.getElementById("register-name").value;
     const email= document.getElementById("register-email").value;
     const password= document.getElementById("register-password").value;
 
-    registerFirebase(username, email, password);
+    registerFirebase(email, password);
 }
 
 const template = `
@@ -21,13 +20,14 @@ const template = `
       <div class="mobile-logo "><img src="img/logo/logo-rosa.png"></div>
       <form id="signup-form">
         <h2 class="form_title">Bienvenidas a la primera redSocial para mujeres deportistas</h2>
-        <input class="inputForm" type="name" id="register-name" placeholder="Nombre">
         <input class="inputForm" type="email" id="register-email" placeholder="Correo Electronico">
         <input class="inputForm" type="password" id="register-password" placeholder="Contraseña">
-        <p class="session-text">¿Ya tienes cuenta?<br></p>
-        <a href="#/login">Inicia Sesión</a>
       </form>
       <button class="button-auth" type="submit" id="btn-sing-up">Registrarse</button>
+      <div class="session-text">
+        <p >¿Ya tienes cuenta?<br></p>
+        <a href="#/login">Inicia Sesión</a>
+      </div>
   </di>  `;
 
 export const register = new Component(template, onLoad);
