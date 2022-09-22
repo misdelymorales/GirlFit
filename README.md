@@ -1,6 +1,6 @@
 <h1 align="center">Social Network - GirlFit </h1> 
 
-**Girlfit** es una red social para mujeres deportistas, donde el usuario puede interactuar con otras mujeres compartir entrenamientos y tips mediantes publicaciones, así como dar like o quitarlo si así lo desea, además de editar sus publicaciones y verlas en tiempo real; para ello las usuarias podrán registrarse con su correo, loguearse con google y facebook. Puedes ver nuestro proyecto final [aquí][github-page-Misdely] o [aquí][github-page-Luisa]
+**Girlfit** es una red social para mujeres deportistas, donde el usuario puede interactuar con otras mujeres compartir entrenamientos y tips mediantes publicaciones, así como dar like o quitarlo si así lo desea, además de editar sus publicaciones y verlas en tiempo real; para ello las usuarias podrán registrarse con su correo, loguearse con google y facebook. Puedes ver nuestro proyecto final [aquí][github-page-Misdely].
 
 ***
 
@@ -52,8 +52,7 @@ Con el análisis obtenido pudimos iniciar nuestro diseño, para Mobile first
 <h3 align="center"> SCL021 Social Network - Devs 2022, Misdely Morales & Luisa Carrillo </h3> 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[github-page-Luisa]: (https://luisaele28.github.io/Red-social/)
-[github-page-Misdely]: (https://luisaele28.github.io/Red-social/)
+[github-page-Misdely]: (https://misdelymorales.github.io/social-network-GirlFit/)
 [historiaUsuario]: ./src/img/Imagenes/usuario.PNG
 [prototipo1]: ./src/img/Imagenes/prototype1.PNG
 [prototipo2]: ./src/img/Imagenes/prototype2.PNG
