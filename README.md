@@ -52,7 +52,7 @@ Con el análisis obtenido pudimos iniciar nuestro diseño, para Mobile first
 <h3 align="center"> SCL021 Social Network - Devs 2022, Misdely Morales & Luisa Carrillo </h3> 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[github-page-Misdely]: https://misdelymorales.github.io/social-network-GirlFit/
+[github-page-Misdely]: https://misdelymorales.github.io/GirlFit/#/login
 [historiaUsuario]: ./src/img/Imagenes/usuario.PNG
 [prototipo1]: ./src/img/Imagenes/prototype1.PNG
 [prototipo2]: ./src/img/Imagenes/prototype2.PNG
